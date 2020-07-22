@@ -10,16 +10,39 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="beb55850-116e-4f8f-97a9-bb7760b6779b" name="Default Changelist" comment="" />
+    <list default="true" id="beb55850-116e-4f8f-97a9-bb7760b6779b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CientApp/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CientApp/ClientStart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CientApp/KeyListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CientApp/ServerListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ServerApp/Connector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ServerApp/Listener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ServerApp/Server.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ServerApp/ServerStart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project3POO.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Project3POO.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1f1Djkg9utIjjlb4KHUe1thQttH" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -27,8 +50,47 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+  </component>
+  <component name="RunManager" selected="Application.ClientStart">
+    <configuration name="ClientStart" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CientApp.ClientStart" />
+      <module name="Project3POO" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="CientApp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServerStart" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ServerApp.ServerStart" />
+      <module name="Project3POO" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ServerApp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.ClientStart" />
+      <item itemvalue="Application.ServerStart" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ClientStart" />
+        <item itemvalue="Application.ServerStart" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -40,9 +102,13 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1595376842103</updated>
-      <workItem from="1595376846211" duration="4000" />
+      <workItem from="1595376846211" duration="643000" />
+      <workItem from="1595434803986" duration="20933000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -54,5 +120,67 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="395" y="91" key="#Inspections" timestamp="1595461628456">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="395" y="91" key="#Inspections/0.0.1536.824@0.0.1536.824" timestamp="1595461628456" />
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1595451514496">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1595451514496" />
+    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser" timestamp="1595454213892">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1595454213892" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1595462017152">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1595462017152" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1595462017152">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1595462017152" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1595462017152">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1595462017152" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1595462017152">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1595462017152" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1595461951305">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1595461951305" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1595461951305">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1595461951305" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1595461951305">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1595461951305" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1595461951305">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1595461951305" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1595461152386">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1595461152386" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/CientApp/KeyListener.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
