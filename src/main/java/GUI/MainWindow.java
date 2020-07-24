@@ -5,17 +5,30 @@
  */
 package GUI;
 
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import javax.swing.text.Style;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
+
 /**
  *
  * @author Fernando Alvarez
  */
-public class MainWindow extends javax.swing.JFrame {
+public class MainWindow extends javax.swing.JFrame implements KeyListener{
 
-    /**
-     * Creates new form MainWindow
-     */
+    public StyledDocument document;
+    private Color NEGRO = new Color(50, 50, 50);
+    //Tamano imagenes personaje 133x377
+    //Tamano imagenes personaje ataque 317x243
+    
     public MainWindow() {
         initComponents();
+        this.setTitle("MOLTALKOMBAT.exe");
+        initConsole();
+        initData();
     }
 
     /**
@@ -30,61 +43,88 @@ public class MainWindow extends javax.swing.JFrame {
         pnlMain = new javax.swing.JPanel();
         pnlInfo = new javax.swing.JPanel();
         pnlRank = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtAreaRank = new javax.swing.JTextArea();
         pnlEnemyInfo = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txtAreaEnemyInfo = new javax.swing.JTextArea();
         pnlMyInfo = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        txtAreaEnemyInfo1 = new javax.swing.JTextArea();
         pnlAtack = new javax.swing.JPanel();
         pnlAtackedInfo = new javax.swing.JPanel();
         pnlAtackInfo = new javax.swing.JPanel();
         pnlPlayer = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lblDummy1 = new javax.swing.JLabel();
         pnlCharacter = new javax.swing.JPanel();
         pnlWeapn = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        lblPlayerHpInfo = new javax.swing.JLabel();
+        txtInput = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        txtOutPut = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1310, 760));
 
         pnlMain.setPreferredSize(new java.awt.Dimension(1290, 720));
 
         pnlRank.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        txtAreaRank.setEditable(false);
+        txtAreaRank.setBackground(new java.awt.Color(51, 51, 51));
+        txtAreaRank.setColumns(10);
+        txtAreaRank.setForeground(new java.awt.Color(51, 255, 0));
+        txtAreaRank.setRows(10);
+        jScrollPane1.setViewportView(txtAreaRank);
+
         javax.swing.GroupLayout pnlRankLayout = new javax.swing.GroupLayout(pnlRank);
         pnlRank.setLayout(pnlRankLayout);
         pnlRankLayout.setHorizontalGroup(
             pnlRankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 151, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
         );
         pnlRankLayout.setVerticalGroup(
             pnlRankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 172, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
         );
 
         pnlEnemyInfo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        txtAreaEnemyInfo.setEditable(false);
+        txtAreaEnemyInfo.setBackground(new java.awt.Color(51, 51, 51));
+        txtAreaEnemyInfo.setColumns(10);
+        txtAreaEnemyInfo.setForeground(new java.awt.Color(51, 255, 0));
+        txtAreaEnemyInfo.setRows(10);
+        jScrollPane3.setViewportView(txtAreaEnemyInfo);
 
         javax.swing.GroupLayout pnlEnemyInfoLayout = new javax.swing.GroupLayout(pnlEnemyInfo);
         pnlEnemyInfo.setLayout(pnlEnemyInfoLayout);
         pnlEnemyInfoLayout.setHorizontalGroup(
             pnlEnemyInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 151, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
         );
         pnlEnemyInfoLayout.setVerticalGroup(
             pnlEnemyInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 172, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
         );
 
         pnlMyInfo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        txtAreaEnemyInfo1.setEditable(false);
+        txtAreaEnemyInfo1.setBackground(new java.awt.Color(51, 51, 51));
+        txtAreaEnemyInfo1.setColumns(10);
+        txtAreaEnemyInfo1.setForeground(new java.awt.Color(51, 255, 0));
+        txtAreaEnemyInfo1.setRows(10);
+        jScrollPane5.setViewportView(txtAreaEnemyInfo1);
 
         javax.swing.GroupLayout pnlMyInfoLayout = new javax.swing.GroupLayout(pnlMyInfo);
         pnlMyInfo.setLayout(pnlMyInfoLayout);
         pnlMyInfoLayout.setHorizontalGroup(
             pnlMyInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 151, Short.MAX_VALUE)
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
         );
         pnlMyInfoLayout.setVerticalGroup(
             pnlMyInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 172, Short.MAX_VALUE)
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout pnlInfoLayout = new javax.swing.GroupLayout(pnlInfo);
@@ -158,9 +198,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addContainerGap(44, Short.MAX_VALUE))
         );
 
-        jLabel1.setText("Your Team");
-
-        pnlCharacter.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblDummy1.setText("Your Team");
 
         javax.swing.GroupLayout pnlCharacterLayout = new javax.swing.GroupLayout(pnlCharacter);
         pnlCharacter.setLayout(pnlCharacterLayout);
@@ -186,44 +224,48 @@ public class MainWindow extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jLabel2.setText("jLabel2");
+        lblPlayerHpInfo.setText("jLabel2");
 
         javax.swing.GroupLayout pnlPlayerLayout = new javax.swing.GroupLayout(pnlPlayer);
         pnlPlayer.setLayout(pnlPlayerLayout);
         pnlPlayerLayout.setHorizontalGroup(
             pnlPlayerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPlayerLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlPlayerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(pnlWeapn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlCharacter, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlPlayerLayout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
             .addGroup(pnlPlayerLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(407, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(pnlPlayerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlPlayerLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(lblPlayerHpInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnlPlayerLayout.createSequentialGroup()
+                        .addGroup(pnlPlayerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(pnlWeapn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(pnlCharacter, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlPlayerLayout.createSequentialGroup()
+                                .addComponent(lblDummy1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 531, Short.MAX_VALUE)))
+                        .addContainerGap())))
         );
         pnlPlayerLayout.setVerticalGroup(
             pnlPlayerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlPlayerLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(lblDummy1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
+                .addGap(10, 10, 10)
+                .addComponent(lblPlayerHpInfo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pnlWeapn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jTextArea2.setMaximumSize(new java.awt.Dimension(1280, 100));
-        jScrollPane2.setViewportView(jTextArea2);
+        txtInput.setBackground(new java.awt.Color(51, 51, 51));
+        txtInput.setForeground(new java.awt.Color(51, 255, 0));
+
+        txtOutPut.setEditable(false);
+        txtOutPut.setBackground(new java.awt.Color(51, 51, 51));
+        jScrollPane2.setViewportView(txtOutPut);
 
         javax.swing.GroupLayout pnlMainLayout = new javax.swing.GroupLayout(pnlMain);
         pnlMain.setLayout(pnlMainLayout);
@@ -239,7 +281,9 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(pnlPlayer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(pnlMainLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane2)))
+                        .addGroup(pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtInput))))
                 .addContainerGap())
         );
         pnlMainLayout.setVerticalGroup(
@@ -252,7 +296,9 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(pnlPlayer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(pnlAtack, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -275,67 +321,30 @@ public class MainWindow extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MainWindow().setVisible(true);
-            }
-        });
+    
+    public void initConsole(){
+        this.txtInput.addKeyListener(this);
+        document = this.txtOutPut.getStyledDocument();
     }
+    
+    public void initData(){
+        setCharacter();
+        setRanks();
+        setWeapons();
+        setAtacked();
+        setAtack();
+        setInfoEnemy();
+        setMyInfo();
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel14;
-    private javax.swing.JPanel jPanel15;
-    private javax.swing.JPanel jPanel16;
-    private javax.swing.JPanel jPanel17;
-    private javax.swing.JPanel jPanel18;
-    private javax.swing.JPanel jPanel19;
-    private javax.swing.JPanel jPanel20;
-    private javax.swing.JPanel jPanel21;
-    private javax.swing.JPanel jPanel22;
-    private javax.swing.JPanel jPanel23;
-    private javax.swing.JPanel jPanel24;
-    private javax.swing.JPanel jPanel25;
-    private javax.swing.JPanel jPanel26;
-    private javax.swing.JPanel jPanel27;
-    private javax.swing.JPanel jPanel28;
-    private javax.swing.JPanel jPanel29;
-    private javax.swing.JPanel jPanel30;
-    private javax.swing.JPanel jPanel31;
-    private javax.swing.JPanel jPanel32;
-    private javax.swing.JPanel jPanel33;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JLabel lblDummy1;
+    private javax.swing.JLabel lblPlayerHpInfo;
     private javax.swing.JPanel pnlAtack;
     private javax.swing.JPanel pnlAtackInfo;
     private javax.swing.JPanel pnlAtackedInfo;
@@ -347,5 +356,133 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel pnlPlayer;
     private javax.swing.JPanel pnlRank;
     private javax.swing.JPanel pnlWeapn;
+    private javax.swing.JTextArea txtAreaEnemyInfo;
+    private javax.swing.JTextArea txtAreaEnemyInfo1;
+    private javax.swing.JTextArea txtAreaRank;
+    private javax.swing.JTextField txtInput;
+    private javax.swing.JTextPane txtOutPut;
     // End of variables declaration//GEN-END:variables
+
+    
+    private void print(String message, boolean trace, Color c) {
+        Style style = txtOutPut.addStyle("Style", null);
+        StyleConstants.setForeground(style, c);
+        
+        if(trace){
+            Throwable t = new Throwable();
+            StackTraceElement[] elements = t.getStackTrace();
+            String caller = elements[0].getClassName();
+            
+            message =  caller+"->"+message;
+        }
+        try {
+            document.insertString(document.getLength(), message, style);
+        } catch (Exception e) {
+        }
+            
+        }
+    
+    public void print(String message,boolean trace){
+        print(message, trace,Color.GREEN);
+    }
+    
+    public void println(String message,boolean trace){
+        print(">"+message+"\n", trace,Color.GREEN);
+    }
+    
+    public void printChatMessage(String message,boolean trace){
+        print(message+"\n", trace,Color.YELLOW);
+    }
+    
+    public void printConsoleMessage(String message,boolean trace){
+        print(message+"\n", trace,Color.RED);
+    }
+    
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+            println(this.txtInput.getText(), false);
+            printConsoleMessage("SoyConsola", false);
+            printChatMessage("SoyChat", false);
+            this.txtInput.setText("");
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
+    }
+    
+    public void setCharacter(/**/){//Usa la referencia que tenga los jugadores solo necesita actualizar su hp
+        Dimension dimsension = new Dimension(this.pnlCharacter.getSize().width/5, this.pnlCharacter.getSize().height);
+        for (int i = 0; i < 5; i++) {
+            PersonajeLabel pl = new PersonajeLabel("Dummy"+String.valueOf(i));
+            pl.setBounds(dimsension.width*i,0,dimsension.width,dimsension.height);
+            pl.setBackground(NEGRO);
+            pnlCharacter.add(pl);
+        }
+    }
+    
+    public void setRanks(){//Usa el archivo o la estructura de jugadores guardados y toma los 10 de mayor puntaje
+        String rank = "RANKING\n";
+        for (int i = 0; i < 10; i++) {
+            rank += String.valueOf(i+1)+ ".player "+String.valueOf(i)+"\n";
+        }
+        txtAreaRank.setText(rank);
+    }
+    
+    public void setWeapons(){
+        Dimension dimension = pnlWeapn.getSize();
+        int labelHeigth = dimension.height/5;
+        for(int i = 0;i<5;i++){
+            WeaponInfoLabel wil = new WeaponInfoLabel();
+            wil.setBounds(0, labelHeigth*i, dimension.width, labelHeigth);
+            wil.createLabels("weapon"+String.valueOf(i), null);
+            pnlWeapn.add(wil);
+        }
+    }
+    
+    public void setAtack(){
+        Dimension dimension = pnlAtackInfo.getSize();
+        AtackInfoLabel ail = new AtackInfoLabel("", "", "", "");
+        ail.setBounds(0,0,dimension.width,dimension.height);
+        pnlAtackInfo.add(ail);
+    }
+    
+    public void setAtacked(){
+        AtackedByInfoLabel abl = new AtackedByInfoLabel("", "", "", null);
+        Dimension dimension = pnlAtackedInfo.getSize();
+        abl.setBounds(0, 0, dimension.width, dimension.height);
+        pnlAtackedInfo.add(abl);
+    }
+    
+    public void setInfoEnemy(){//Usa el historial del jugador enemigo
+        String info = "Enemy\n"+
+                       "Wins:"+"\n"+
+                       "Loses:"+"\n"+
+                       "Atacks:"+"\n"+
+                       "Success:"+"\n"+
+                       "Failed:"+"\n"+
+                        "GiveUp:"+"\n";
+        txtAreaEnemyInfo1.setText(info);
+    }
+    
+    public void setMyInfo(){//Usa el historial del jugador actual
+        String info = "MyInfo\n"+
+                       "Wins:"+"\n"+
+                       "Loses:"+"\n"+
+                       "Atacks:"+"\n"+
+                       "Success:"+"\n"+
+                       "Failed:"+"\n"+
+                        "GiveUp:"+"\n";
+        /*for (int i = 0; i < 10; i++) {
+            
+        }*/
+        txtAreaEnemyInfo.setText(info);
+    }
 }

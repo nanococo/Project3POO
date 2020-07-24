@@ -5,10 +5,22 @@
  */
 package GUI;
 
+import javax.swing.JLabel;
+
 /**
  *
  * @author Fernando Alvarez
  */
-public class AtackInfoLabel {
+public class AtackInfoLabel extends JLabel{
+
+    public AtackInfoLabel(String name,String type,String weapon,String damage) {
+        
+        String atack = "<html>You Atacked "+"Dummy"+" ["+"Test"+"]"+"<BR>"+
+                        "Weapon: "+ "PumPam"+"<BR><BR>"+
+                        "53%";
+        atack += "<html>";
+        setText(atack);
+    }
+    
     
 }

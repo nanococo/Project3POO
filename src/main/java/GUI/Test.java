@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Command;
+package GUI;
 
 /**
  *
  * @author Fernando Alvarez
  */
-public interface ICommand {
-    
-    public void execute(String[] args);
-    public String getCommandName();
-    
+public class Test {
+    public static void main(String[] args) {
+        MainWindow m = new MainWindow();
+        m.setVisible(true);
+    }
 }
