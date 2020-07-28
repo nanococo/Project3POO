@@ -1,7 +1,5 @@
 package CientApp;
 
-import ServerApp.Server;
-
 import java.io.IOException;
 import java.net.Socket;
 

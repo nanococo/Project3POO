@@ -1,0 +1,14 @@
+{
+  "characters" : [
+    {
+      "name": "Toledo",
+      "type": "mota",
+      "path": "c:/"
+    },
+    {
+      "name": "again",
+      "type": "negro",
+      "path": "c:/"
+    }
+  ]
+}
