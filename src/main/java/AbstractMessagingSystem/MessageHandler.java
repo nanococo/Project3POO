@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI;
+package AbstractMessagingSystem;
 
 /**
  *
  * @author Fernando Alvarez
  */
-public class Test {
-    public static void main(String[] args) {
-
-    }
+public interface MessageHandler {
+    public abstract void useMessage(IMessage message);
 }

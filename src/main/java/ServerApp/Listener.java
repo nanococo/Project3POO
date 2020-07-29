@@ -1,7 +1,10 @@
 package ServerApp;
 
+import AbstractMessagingSystem.IMessage;
+import AbstractMessagingSystem.MessageManager;
 import java.io.BufferedInputStream;
-import java.io.DataInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.Socket;
 
 public class Listener extends Thread {
@@ -10,7 +13,7 @@ public class Listener extends Thread {
     private final Server server;
     private boolean killSwitch = false;
 
-    public Listener(Socket client, Server server){
+    public Listener(Socket client, Server server)throws IOException{
         this.client = client;
         this.server = server;
     }
@@ -20,20 +23,22 @@ public class Listener extends Thread {
     public void run() {
         while(true){
             try{
-                String line = new DataInputStream(new BufferedInputStream(client.getInputStream())).readUTF();
-                System.out.println(line);
+                
+                IMessage message =(IMessage) new ObjectInputStream(new BufferedInputStream(client.getInputStream())).readObject();
+                server.getMessageHandler().useMessage(message);//Aca se envia a la clase que tiene que utilizar el mensaje y se ejecuta segun se haya programado el metodo abstracto
 
-                if(line.equals("Exit")){
+                if(message.equals("Exit")){
                     client.close();
                     System.out.println("Client Exited");
                     break;
-                } else if(line.equals("End")){
+                } else if(message.equals("End")){
                     server.endServer();
                     System.out.println("Server Shut Down");
                     break;
-                } else if(line.equals("Time")){
+                } else if(message.equals("Time")){
 
                 }
+                
 
             } catch (Exception e){
                 System.out.println(e.getMessage());

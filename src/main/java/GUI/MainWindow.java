@@ -5,6 +5,11 @@
  */
 package GUI;
 
+import AbstractMessagingSystem.IInput;
+import AbstractMessagingSystem.IMessage;
+import AbstractMessagingSystem.IOutput;
+import AbstractMessagingSystem.MessageHandler;
+import AbstractMessagingSystem.MessageManager;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
@@ -17,17 +22,17 @@ import javax.swing.text.StyledDocument;
  *
  * @author Fernando Alvarez
  */
-public class MainWindow extends javax.swing.JFrame implements KeyListener{
+public class MainWindow extends javax.swing.JFrame implements IInput,IOutput,MessageHandler{
 
     public StyledDocument document;
     private Color NEGRO = new Color(50, 50, 50);
     //Tamano imagenes personaje 133x377
     //Tamano imagenes personaje ataque 317x243
     
-    public MainWindow() {
+    public MainWindow(KeyListener listener) {
         initComponents();
         this.setTitle("MOLTALKOMBAT.exe");
-        initConsole();
+        initConsole(listener);
         initData();
     }
 
@@ -322,8 +327,8 @@ public class MainWindow extends javax.swing.JFrame implements KeyListener{
      * @param args the command line arguments
      */
     
-    public void initConsole(){
-        this.txtInput.addKeyListener(this);
+    public void initConsole(KeyListener listener){
+        this.txtInput.addKeyListener(listener);
         document = this.txtOutPut.getStyledDocument();
     }
     
@@ -398,26 +403,6 @@ public class MainWindow extends javax.swing.JFrame implements KeyListener{
         print(message+"\n", trace,Color.RED);
     }
     
-    @Override
-    public void keyTyped(KeyEvent e) {
-
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-            println(this.txtInput.getText(), false);
-            printConsoleMessage("SoyConsola", false);
-            printChatMessage("SoyChat", false);
-            this.txtInput.setText("");
-        }
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-
-    }
-    
     public void setCharacter(/**/){//Usa la referencia que tenga los jugadores solo necesita actualizar su hp
         Dimension dimsension = new Dimension(this.pnlCharacter.getSize().width/5, this.pnlCharacter.getSize().height);
         for (int i = 0; i < 5; i++) {
@@ -484,5 +469,23 @@ public class MainWindow extends javax.swing.JFrame implements KeyListener{
             
         }*/
         txtAreaEnemyInfo.setText(info);
+    }
+
+    @Override
+    public String nextLine() {
+        String line = this.txtInput.getText();
+        println(line, false);
+        this.txtInput.setText("");
+        return line;
+    }
+
+    @Override
+    public void write(IMessage mesage) {
+        
+    }
+
+    @Override
+    public void useMessage(IMessage message) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

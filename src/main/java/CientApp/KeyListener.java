@@ -1,36 +1,35 @@
 package CientApp;
 
+import AbstractMessagingSystem.IInput;
+import AbstractMessagingSystem.MessageManager;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public class KeyListener extends Thread {
+public class KeyListener  {
 
     private final Client client;
     private boolean killSwitch = false;
-    private final DataOutputStream outputStream;
-    private Scanner scanner;
+    private final ObjectOutputStream outputStream;
+    private IInput input;//Cualquier clase que implemente Iinput
 
-    public KeyListener(Socket socket, Client client) throws IOException {
+    public KeyListener(Socket socket, Client client,IInput input) throws IOException {
         this.client = client;
-        this.scanner = new Scanner(System.in);
-        this.outputStream = new DataOutputStream(socket.getOutputStream());
+        this.input = input;
+        this.outputStream = new ObjectOutputStream(socket.getOutputStream());
     }
 
-    @Override
-    public void run() {
-        while (!killSwitch){
-            try{
-                String line = scanner.nextLine();
-                outputStream.writeUTF(line);
-                if(line.equals("End")){
-                    client.closeClient();
-                }
-            } catch (Exception e){
-                client.closeClient();
-                break;
-            }
+    
+    public void getInput(){
+        String line = input.nextLine();
+        try {
+            outputStream.writeObject(MessageManager.createMessage(line));
+        } catch (IOException ex) {
+            Logger.getLogger(KeyListener.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

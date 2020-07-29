@@ -38,7 +38,11 @@ public class PersonajeLabel extends JLabel{
         this.add(this.name);
         this.add(this.hp);
         this.setBorder(BorderFactory.createLineBorder(Color.black));
-
+        /*try {
+            this.setIcon(new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("/Images/toledoatack.png"))));
+        } catch (IOException ex) {
+            Logger.getLogger(PersonajeLabel.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
     }
     
     public void updateHp(String hp){

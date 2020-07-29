@@ -1,5 +1,9 @@
 package CientApp;
 
+import AbstractMessagingSystem.IInput;
+import AbstractMessagingSystem.IOutput;
+import AbstractMessagingSystem.MessageHandler;
+import AbstractMessagingSystem.MessageManager;
 import ServerApp.Server;
 
 import java.io.IOException;
@@ -10,18 +14,19 @@ public class Client {
     private Socket socket;
     private KeyListener keyListener;
     private ServerListener serverListener;
+    private MessageHandler messageHandler;//Aca puede ser la pantalla para actualizar los datos
 
-    public Client(String address, int port) {
+    public Client(String address, int port,IInput input,IOutput output,MessageHandler messageHandler) {
         // establish a connection
         try {
+            this.messageHandler = messageHandler;
             socket = new Socket(address, port);
             System.out.println("Connected");
 
-            serverListener = new ServerListener(socket, this);
+            serverListener = new ServerListener(socket, this,output);
             serverListener.start();
 
-            keyListener = new KeyListener(socket, this);
-            keyListener.start();
+            keyListener = new KeyListener(socket, this,input);
 
         }
         catch(IOException u) {
@@ -40,5 +45,13 @@ public class Client {
         catch(IOException i) {
             System.out.println(i.getMessage());
         }
+    }
+
+    MessageHandler getMessageHandler() {
+        return this.messageHandler;
+    }
+    
+    public void sendMessage(){
+        this.keyListener.getInput();
     }
 }
