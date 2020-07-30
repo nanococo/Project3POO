@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package AbstractMessagingSystem;
+package GUI;
+
+import Messaging.IMessage;
 
 /**
  *
  * @author Fernando Alvarez
  */
-public interface MessageHandler {
-    public abstract void useMessage(IMessage message);
+public interface IOutput {
+    void write(IMessage message);
 }

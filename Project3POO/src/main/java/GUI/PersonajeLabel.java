@@ -6,6 +6,7 @@
 package GUI;
 
 import java.awt.Color;
+import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -38,11 +39,12 @@ public class PersonajeLabel extends JLabel{
         this.add(this.name);
         this.add(this.hp);
         this.setBorder(BorderFactory.createLineBorder(Color.black));
-        /*try {
-            this.setIcon(new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("/Images/toledoatack.png"))));
-        } catch (IOException ex) {
-            Logger.getLogger(PersonajeLabel.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        try{
+            File file = new File("src\\main\\resources\\toledoArt.jpg");
+            this.setIcon(new ImageIcon(ImageIO.read(file)));
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
     }
     
     public void updateHp(String hp){

@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package AbstractMessagingSystem;
+package GUI;
 
 /**
  *
  * @author Fernando Alvarez
  */
 public interface IInput {
-    public String nextLine();
+    String nextLine();
 }

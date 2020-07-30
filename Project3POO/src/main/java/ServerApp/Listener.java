@@ -1,19 +1,25 @@
 package ServerApp;
 
-import AbstractMessagingSystem.IMessage;
-import AbstractMessagingSystem.MessageManager;
+import Messaging.IMessage;
+import ServerApp.CommandManager.CommandManager;
+import ServerApp.CommandManager.CommandUtil;
+import ServerApp.CommandManager.Commands.ICommand;
+import messaging.GenericMessage;
+
 import java.io.BufferedInputStream;
-import java.io.IOException;
+import java.io.DataInputStream;
 import java.io.ObjectInputStream;
 import java.net.Socket;
+import java.util.Arrays;
 
 public class Listener extends Thread {
 
     private final Socket client;
     private final Server server;
     private boolean killSwitch = false;
+    private final CommandManager commandManager = CommandManager.getInstance();
 
-    public Listener(Socket client, Server server)throws IOException{
+    public Listener(Socket client, Server server) {
         this.client = client;
         this.server = server;
     }
@@ -21,23 +27,16 @@ public class Listener extends Thread {
 
     @Override
     public void run() {
-        while(true){
+        while(!killSwitch){
             try{
                 
-                IMessage message =(IMessage) new ObjectInputStream(new BufferedInputStream(client.getInputStream())).readObject();
-                server.getMessageHandler().useMessage(message);//Aca se envia a la clase que tiene que utilizar el mensaje y se ejecuta segun se haya programado el metodo abstracto
+                IMessage message = (IMessage) new ObjectInputStream(new BufferedInputStream(client.getInputStream())).readObject();
 
-                if(message.equals("Exit")){
-                    client.close();
-                    System.out.println("Client Exited");
-                    break;
-                } else if(message.equals("End")){
-                    server.endServer();
-                    System.out.println("Server Shut Down");
-                    break;
-                } else if(message.equals("Time")){
+                String commandName = message.getKey();
+                String[] commandArgs = ((GenericMessage) message).getParams();
 
-                }
+                ICommand command = commandManager.getCommand(commandName);
+                command.execute(commandArgs);
                 
 
             } catch (Exception e){

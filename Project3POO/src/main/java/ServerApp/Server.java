@@ -1,7 +1,5 @@
 package ServerApp;
 
-import AbstractMessagingSystem.IMessage;
-import AbstractMessagingSystem.MessageHandler;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
@@ -12,12 +10,10 @@ import java.util.List;
 
 public class Server{
 
-    private List<Socket> clients = Collections.synchronizedList(new ArrayList<Socket>());
-    private List<Listener> listeners = new ArrayList<>();
+    private final List<Socket> clients = Collections.synchronizedList(new ArrayList<>());
+    private final List<Listener> listeners = new ArrayList<>();
     private ServerSocket serverSocket;
     private Connector connector;
-    private ObjectOutputStream op;
-    private MessageHandler messageHandler; //Aca puede ser el comandManager para ejecutar comandos y luego enviar una respuesta
 
     public List<Socket> getClients() {
         return clients;
@@ -31,11 +27,9 @@ public class Server{
         return listeners;
     }
 
-    public Server(int port,MessageHandler messageHandler) {
+    public Server(int port) {
         // starts server and waits for a connection
-       // op = new ObjectOutputStream(new );
         try {
-            this.messageHandler = messageHandler;
             this.serverSocket = new ServerSocket(port);
             System.out.println("Server started");
 
@@ -73,17 +67,11 @@ public class Server{
             listener.kill();
         }
     }
-
-    MessageHandler getMessageHandler() {
-        return this.messageHandler;
-    }
     
-    public void sendToAll(IMessage message) throws IOException{
-        for (Socket client : clients) {
-            new ObjectOutputStream(client.getOutputStream()).writeObject(message);
-        }
-    }
-    
-    //
+//    public void sendToAll(IMessage message) throws IOException{
+//        for (Socket client : clients) {
+//            new ObjectOutputStream(client.getOutputStream()).writeObject(message);
+//        }
+//    }
 
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package AbstractMessagingSystem;
+package CientApp;
 
 import CientApp.Client;
 import GUI.MainWindow;
@@ -21,7 +21,7 @@ public class TestPlayer implements KeyListener {
 
     public TestPlayer() {
         this.playerWindow = new MainWindow(this);
-        client = new Client("127.0.0.1",5000,playerWindow,playerWindow,playerWindow);
+        client = new Client("127.0.0.1",5000,playerWindow);
         playerWindow.setVisible(true);
     }
     

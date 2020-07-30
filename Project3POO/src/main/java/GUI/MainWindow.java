@@ -5,14 +5,10 @@
  */
 package GUI;
 
-import AbstractMessagingSystem.IInput;
-import AbstractMessagingSystem.IMessage;
-import AbstractMessagingSystem.IOutput;
-import AbstractMessagingSystem.MessageHandler;
-import AbstractMessagingSystem.MessageManager;
+import Messaging.IMessage;
+
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.text.Style;
 import javax.swing.text.StyleConstants;
@@ -22,7 +18,7 @@ import javax.swing.text.StyledDocument;
  *
  * @author Fernando Alvarez
  */
-public class MainWindow extends javax.swing.JFrame implements IInput,IOutput,MessageHandler{
+public class MainWindow extends javax.swing.JFrame implements IInput,IOutput {
 
     public StyledDocument document;
     private Color NEGRO = new Color(50, 50, 50);
@@ -475,13 +471,9 @@ public class MainWindow extends javax.swing.JFrame implements IInput,IOutput,Mes
         return line;
     }
 
-    @Override
-    public void write(IMessage mesage) {
-        
-    }
 
     @Override
-    public void useMessage(IMessage message) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void write(IMessage message) {
+
     }
 }

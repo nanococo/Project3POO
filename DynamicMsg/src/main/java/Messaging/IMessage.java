@@ -1,6 +1,7 @@
 package Messaging;
 
-public interface IMessage {
-    Object unPackage(IMessage iMessage);
-    void packContent();
+import java.io.Serializable;
+
+public interface IMessage extends Serializable {
+    String getKey();
 }
