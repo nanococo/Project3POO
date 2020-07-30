@@ -2,26 +2,21 @@ package ServerApp;
 
 import Messaging.IMessage;
 import ServerApp.CommandManager.CommandManager;
-import ServerApp.CommandManager.CommandUtil;
 import ServerApp.CommandManager.Commands.ICommand;
 import messaging.GenericMessage;
 
 import java.io.BufferedInputStream;
-import java.io.DataInputStream;
 import java.io.ObjectInputStream;
 import java.net.Socket;
-import java.util.Arrays;
 
 public class Listener extends Thread {
 
     private final Socket client;
-    private final Server server;
     private boolean killSwitch = false;
     private final CommandManager commandManager = CommandManager.getInstance();
 
-    public Listener(Socket client, Server server) {
+    public Listener(Socket client) {
         this.client = client;
-        this.server = server;
     }
 
 

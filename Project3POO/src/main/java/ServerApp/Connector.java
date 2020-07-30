@@ -1,5 +1,7 @@
 package ServerApp;
 
+import ServerApp.Game.Player;
+
 import java.io.IOException;
 import java.net.Socket;
 
@@ -19,7 +21,16 @@ public class Connector extends Thread {
                 System.out.println("Waiting for a client ...");
                 Socket client = server.getServerSocket().accept();
                 server.getClients().add(client);
-                Listener listener = new Listener(client, server);
+
+
+                if(server.getGame().players[0]==null){
+                    server.getGame().players[0] = new Player(client);
+                } else {
+                    server.getGame().players[1] = new Player(client);
+                    break;
+                }
+
+                Listener listener = new Listener(client);
                 listener.start();
                 server.getListeners().add(listener);
 

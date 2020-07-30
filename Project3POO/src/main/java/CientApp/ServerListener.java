@@ -23,7 +23,6 @@ public class ServerListener extends Thread {
         while (!killSwitch){
             try{
 
-
                 IMessage message = (IMessage) new ObjectInputStream(new BufferedInputStream(socket.getInputStream())).readObject();
 
 
