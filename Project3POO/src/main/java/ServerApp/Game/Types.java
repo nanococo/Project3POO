@@ -1,6 +1,8 @@
 package ServerApp.Game;
 
-public enum Types {
+import java.io.Serializable;
+
+public enum Types implements Serializable{
     FIRE,
     AIR,
     WATER,
