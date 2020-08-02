@@ -1,6 +1,7 @@
 package CientApp;
 
 import GUI.IInput;
+import GUI.MainWindow;
 
 import java.io.IOException;
 import java.net.Socket;
@@ -11,13 +12,13 @@ public class Client {
     private KeyListener keyListener;
     private ServerListener serverListener;
 
-    public Client(String address, int port, IInput input) {
+    public Client(String address, int port, MainWindow input) {
         // establish a connection
         try {
             socket = new Socket(address, port);
             System.out.println("Connected");
 
-            serverListener = new ServerListener(socket, this);
+            serverListener = new ServerListener(socket, this, input);
             serverListener.start();
 
             keyListener = new KeyListener(socket, input);

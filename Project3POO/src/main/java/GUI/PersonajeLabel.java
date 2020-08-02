@@ -41,7 +41,7 @@ public class PersonajeLabel extends JLabel{
             File file = new File("C:\\GitHub_Projects\\Project3POO\\src\\main\\resources\\Images\\toledoArt.jpg");
             this.setIcon(new ImageIcon(ImageIO.read(file)));
         } catch (Exception e){
-            System.out.println(e.getMessage());
+            //System.out.println(e.getMessage());
         }
 
 

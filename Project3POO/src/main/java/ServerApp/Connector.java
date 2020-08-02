@@ -25,8 +25,12 @@ public class Connector extends Thread {
 
                 if(server.getGame().players[0]==null){
                     server.getGame().players[0] = new Player(client);
+                    server.getGame().players[0].sendMessageToPlayer("PrintConsole", "Waiting for player 2");
+
                 } else {
                     server.getGame().players[1] = new Player(client);
+                    server.getGame().players[0].sendMessageToPlayer("PrintConsole", "Players Connected");
+                    server.getGame().players[1].sendMessageToPlayer("PrintConsole", "Players Connected");
                     break;
                 }
 

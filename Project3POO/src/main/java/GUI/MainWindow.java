@@ -473,7 +473,7 @@ public class MainWindow extends javax.swing.JFrame implements IInput,IOutput {
 
 
     @Override
-    public void write(IMessage message) {
-
+    public void write(String string) {
+        printConsoleMessage(string, true);
     }
 }

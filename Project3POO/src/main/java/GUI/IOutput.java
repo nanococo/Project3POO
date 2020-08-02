@@ -12,5 +12,5 @@ import Messaging.IMessage;
  * @author Fernando Alvarez
  */
 public interface IOutput {
-    void write(IMessage message);
+    void write(String string);
 }
