@@ -32,7 +32,7 @@ public class Server{
         // starts server and waits for a connection
         try {
 
-            game = new Game();
+            game = new Game(this);
 
             this.serverSocket = new ServerSocket(port);
             System.out.println("Server started");
