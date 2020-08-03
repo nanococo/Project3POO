@@ -8,7 +8,6 @@ import java.net.Socket;
 
 public class Player {
 
-    private final Socket connectionToPlayer;
     private final ObjectOutputStream outputStream;
     private PlayerData data;
     private Character characters[];
@@ -16,7 +15,6 @@ public class Player {
     
 
     public Player(Socket socket) throws IOException {
-        this.connectionToPlayer = socket;
         this.outputStream = new ObjectOutputStream(socket.getOutputStream());
         characters = new Character[NUMBER_OF_CHARACTERS];
     }

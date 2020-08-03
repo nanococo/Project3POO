@@ -21,6 +21,7 @@ public class Connector extends Thread {
                 System.out.println("Waiting for a client ...");
                 Socket client = server.getServerSocket().accept();
                 server.getClients().add(client);
+                server.getGame().initPlayer(client);//Pasando el socket al jugador
 
 
                 if(server.getGame().players[0]==null){

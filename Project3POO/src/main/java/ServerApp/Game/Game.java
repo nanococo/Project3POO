@@ -3,6 +3,8 @@ package ServerApp.Game;
 import CharacterManager.CharacterFactory;
 import FileManager.PlayerLoader;
 import ServerApp.Server;
+import java.io.IOException;
+import java.net.Socket;
 import java.util.Random;
 
 
@@ -18,7 +20,6 @@ public class Game {
         this.factory = new CharacterFactory();
         this.log = new Log();
         this.playerLoader = new PlayerLoader();
-        initPlayer(server);
     }
     
     public void initGame(){
@@ -39,10 +40,11 @@ public class Game {
         }
     }
 
-    private void initPlayer(Server server) {
-        for (Player player : players) {
-            //player = new Player();
-        }
+    public void initPlayer(Socket socket) throws IOException {
+        int index = 0;
+        if(players[index] != null)
+            index++;
+        players[index] = new Player(socket);
     }
     
 }
