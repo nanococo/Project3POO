@@ -21,7 +21,6 @@ public class CharacterFactory {
     
     public CharacterFactory(){
         characterList = CharacterLoader.loadCharacter();
-        System.out.println("Sau"+characterList);
         if(characterList == null){
             characterList = new HashMap<>();
             CharacterLoader.saveCharacter(characterList);
@@ -61,14 +60,22 @@ public class CharacterFactory {
         return character;
     }
     
+    public Character getCharacter(int pos){
+        return (Character)characterList.values().toArray()[pos];
+    }
+    
     public boolean exists(String name){
         if(characterList.get(name) == null)
             return false;
         return true;
     }
     
+    public int numeroDePersonajes(){
+        return this.characterList.size();
+    }
+    
     public void imprimir(){
-        System.out.println(characterList.keySet()+"ayuda");
+        System.out.println(characterList.keySet());
     }
     
     

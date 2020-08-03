@@ -29,7 +29,6 @@ public class Server{
     public Server(int port) {
         // starts server and waits for a connection
         try {
-
             this.serverSocket = new ServerSocket(port);
             System.out.println("Server started");
 
