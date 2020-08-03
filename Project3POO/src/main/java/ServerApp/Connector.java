@@ -1,5 +1,6 @@
 package ServerApp;
 
+import ServerApp.Game.Game;
 import ServerApp.Game.Player;
 
 import java.io.IOException;
@@ -17,21 +18,22 @@ public class Connector extends Thread {
     @Override
     public void run() {
         while (!killSwitch){
+
             try {
                 System.out.println("Waiting for a client ...");
                 Socket client = server.getServerSocket().accept();
                 server.getClients().add(client);
 
-
-                if(server.getGame().players[0]==null){
-                    server.getGame().players[0] = new Player(client);
-                    server.getGame().players[0].sendMessageToPlayer("PrintConsole", "Waiting for player 2");
+                if(Game.getInstance().players[0]==null){
+                    Game.getInstance().players[0] = new Player(client);
+                    Game.getInstance().players[0].sendMessageToPlayer("SetClientID", "ABC");
+                    Game.getInstance().players[0].sendMessageToPlayer("PrintConsole", "Waiting for player 2");
 
                 } else {
-                    server.getGame().players[1] = new Player(client);
-                    server.getGame().players[0].sendMessageToPlayer("PrintConsole", "Players Connected");
-                    server.getGame().players[1].sendMessageToPlayer("PrintConsole", "Players Connected");
-                    break;
+                    Game.getInstance().players[1] = new Player(client);
+                    Game.getInstance().players[0].sendMessageToPlayer("PrintConsole", "Players Connected");
+                    Game.getInstance().players[1].sendMessageToPlayer("SetClientID", "DEF");
+                    Game.getInstance().players[1].sendMessageToPlayer("PrintConsole", "Players Connected");
                 }
 
                 Listener listener = new Listener(client);

@@ -11,35 +11,52 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="beb55850-116e-4f8f-97a9-bb7760b6779b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/CientApp/clientCommands/BaseClientCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/CientApp/clientCommands/ClientCommandManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/CientApp/clientCommands/IClientCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/CientApp/clientCommands/PrintConsole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/CientApp/clientCommands/SetWin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/CientApp/clientCommands/SuggestGiveUp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/CientApp/clientCommands/UpdateLife.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ServerApp/CommandManager/Commands/Attack.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ServerApp/CommandManager/Commands/Chat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ServerApp/CommandManager/Commands/GiveUp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ServerApp/CommandManager/Commands/MutualGiveUp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ServerApp/CommandManager/Commands/RandomGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ServerApp/CommandManager/Commands/Reload.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ServerApp/CommandManager/Commands/SelectPlayer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ServerApp/CommandManager/Commands/SkipTurn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ServerApp/CommandManager/Commands/WildCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/copyright/Sebastian_A.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CientApp/GlobalConfigurations.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CientApp/clientCommands/SetClientID.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CharacterManager/SaveChar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CharacterManager/SaveChar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CientApp/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CientApp/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CientApp/ServerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CientApp/ServerListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/IOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/IOutput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MainWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/PersonajeLabel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/PersonajeLabel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CientApp/TestPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CientApp/TestPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CientApp/clientCommands/ClientCommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CientApp/clientCommands/ClientCommandManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CientApp/clientCommands/PrintConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CientApp/clientCommands/PrintConsole.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ServerApp/Connector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServerApp/Connector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ServerApp/Game/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServerApp/Game/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/CientApp/ServerListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CientApp/ServerListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ServerApp/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServerApp/Game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ServerApp/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServerApp/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CharacterManager/CharacterFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CharacterManager/CharacterFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CharacterManager/CharacterLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CharacterManager/CharacterLoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CharacterManager/MakeCharacter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CharacterManager/MakeCharacter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CharacterManager/SaveChar$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CharacterManager/SaveChar$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CharacterManager/SaveChar$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CharacterManager/SaveChar$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CharacterManager/SaveChar$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CharacterManager/SaveChar$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CharacterManager/SaveChar.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CharacterManager/SaveChar.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CientApp/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CientApp/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CientApp/ClientStart.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CientApp/ClientStart.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CientApp/KeyListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CientApp/KeyListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CientApp/TestPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CientApp/TestPlayer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CientApp/clientCommands/ClientCommandManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CientApp/clientCommands/ClientCommandManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CientApp/clientCommands/PrintConsole.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CientApp/clientCommands/PrintConsole.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CientApp/clientCommands/SetWin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CientApp/clientCommands/SetWin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CientApp/clientCommands/SuggestGiveUp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CientApp/clientCommands/SuggestGiveUp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CientApp/clientCommands/UpdateLife.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CientApp/clientCommands/UpdateLife.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/AtackInfoLabel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/AtackInfoLabel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/AtackedByInfoLabel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/AtackedByInfoLabel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/IInput.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/IInput.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/WeaponInfoLabel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/WeaponInfoLabel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ServerApp/CommandManager/CommandManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServerApp/CommandManager/CommandManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ServerApp/CommandManager/CommandTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServerApp/CommandManager/CommandTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ServerApp/CommandManager/CommandUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServerApp/CommandManager/CommandUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ServerApp/CommandManager/Commands/EchoCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServerApp/CommandManager/Commands/EchoCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ServerApp/CommandManager/Commands/ICommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServerApp/CommandManager/Commands/ICommand.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ServerApp/Connector.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServerApp/Connector.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ServerApp/Game/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServerApp/Game/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ServerApp/Listener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServerApp/Listener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ServerApp/Game/Character.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServerApp/Game/Character.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ServerApp/Game/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServerApp/Game/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ServerApp/Game/Types.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServerApp/Game/Types.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ServerApp/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServerApp/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ServerApp/ServerStart.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServerApp/ServerStart.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/filemanager/FileManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/filemanager/FileManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/messaging/GenericMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messaging/GenericMessage.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,12 +84,14 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/lib" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="copyright" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -153,7 +172,8 @@
       <workItem from="1596050065821" duration="673000" />
       <workItem from="1596053728212" duration="9227000" />
       <workItem from="1596074300373" duration="15302000" />
-      <workItem from="1596321693034" duration="11951000" />
+      <workItem from="1596321693034" duration="14070000" />
+      <workItem from="1596409060680" duration="13701000" />
     </task>
     <servers />
   </component>
@@ -173,10 +193,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="395" y="91" key="#Inspections" timestamp="1595461628456">
+    <state x="395" y="91" key="#Inspections" timestamp="1596424325489">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="395" y="91" key="#Inspections/0.0.1536.824@0.0.1536.824" timestamp="1595461628456" />
+    <state x="395" y="91" key="#Inspections/0.0.1536.824@0.0.1536.824" timestamp="1596424325489" />
     <state x="249" y="0" key="#Project_Structure" timestamp="1596054146006">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -185,14 +205,18 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1595451514496" />
-    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser" timestamp="1596334978387">
+    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser" timestamp="1596425722273">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1596334978387" />
+    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1596425722273" />
     <state x="551" y="281" width="433" height="267" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1596322013854">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="551" y="281" width="433" height="267" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1596322013854" />
+    <state x="434" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1596425210299">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="434" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1596425210299" />
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596073774203">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -201,22 +225,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1595999009240" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1596334808386">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1596446180583">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1596334808386" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1596334808386">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1596446180583" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1596446180583">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1596334808386" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1596334808386">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1596446180583" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1596446180583">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1596334808386" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1596334808386">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1596446180583" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1596446180583">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1596334808386" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1596446180583" />
     <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1595461951305">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -233,6 +257,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1595461951305" />
+    <state x="277" y="57" key="SettingsEditor" timestamp="1596423847029">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1596423847029" />
     <state x="261" y="160" key="caller.chooser.dialog" timestamp="1596072991082">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -249,5 +277,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1595461152386" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1596425026050">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1596425026050" />
   </component>
 </project>

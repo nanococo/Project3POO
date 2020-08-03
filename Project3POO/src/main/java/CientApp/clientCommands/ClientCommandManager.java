@@ -11,6 +11,7 @@ public class ClientCommandManager {
     private ClientCommandManager(){
         //Use this method to register commands
         registerCommand(PrintConsole.NAME, PrintConsole.class);
+        registerCommand(SetClientID.NAME, SetClientID.class);
     }
 
     public static ClientCommandManager getInstance(){

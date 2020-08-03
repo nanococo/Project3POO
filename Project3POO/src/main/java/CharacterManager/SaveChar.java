@@ -6,12 +6,10 @@
 package CharacterManager;
 
 import ServerApp.Game.Types;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
 import java.io.File;
-import java.util.HashMap;
-import javax.swing.ComboBoxModel;
-import javax.swing.JButton;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -136,9 +134,9 @@ public class SaveChar extends javax.swing.JFrame {
         jButton3.setEnabled(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jButton3ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         String name = this.lblName.getText();
-        if(name.isBlank())
+        if(name.isEmpty())
             JOptionPane.showMessageDialog(this, "Faltan datos", "Error", JOptionPane.ERROR_MESSAGE);
         else if(factory.exists(name))
             JOptionPane.showMessageDialog(this, "Nombre en uso", "Error", JOptionPane.ERROR_MESSAGE);

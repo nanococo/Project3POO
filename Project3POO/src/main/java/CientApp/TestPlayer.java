@@ -21,7 +21,10 @@ public class TestPlayer implements KeyListener {
 
     public TestPlayer() {
         this.playerWindow = new MainWindow(this);
-        client = new Client("127.0.0.1",5000,playerWindow);
+
+
+
+        client = new Client(playerWindow);
         playerWindow.setVisible(true);
     }
     
