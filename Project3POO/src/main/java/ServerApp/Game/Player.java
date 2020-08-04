@@ -5,13 +5,22 @@ import messaging.GenericMessage;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class Player {
 
     private final ObjectOutputStream outputStream;
     private PlayerData data;
     private Character characters[];
+    private Weapon weapons[] = new Weapon[5];
     private int NUMBER_OF_CHARACTERS = 5;
+    private  String names[] = {
+            "Pistola","Cuchillo","Bomba","Globo",
+            "Espada","Bazooka","Tenedor","Puños",
+            "Garras","Hacha","Laser"
+    };
     
 
     public Player(Socket socket) throws IOException {
@@ -37,5 +46,18 @@ public class Player {
 
     public ObjectOutputStream getObjectOutput(){
         return outputStream;
+    }
+
+    private void generateWeapons(){
+        shuffleArray();
+        for(int i = 0;i<5;i++){
+            weapons[i] = new Weapon(names[i]);
+        }
+    }
+
+    private void shuffleArray(){
+        List<String> list = Arrays.asList(names);
+        Collections.shuffle(list);
+        names = (String[]) list.toArray();
     }
 }
