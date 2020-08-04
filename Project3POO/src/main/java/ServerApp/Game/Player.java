@@ -68,6 +68,10 @@ public class Player {
         }
     }
 
+    public void giveUp(){
+        //Modifica el historial
+    }
+
     private void shuffleArray(){
         List<String> list = Arrays.asList(names);
         Collections.shuffle(list);

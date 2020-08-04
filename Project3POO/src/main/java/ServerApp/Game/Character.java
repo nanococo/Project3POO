@@ -62,4 +62,11 @@ public class Character implements Serializable,Cloneable{
     public Types getType(){
         return  this.type;
     }
+
+    public void reloadWeapons() {
+        for (Weapon weapon:weapons)
+            weapon.setEnabled(true);
+    }
+
+
 }

@@ -19,8 +19,10 @@ public class Game {
 
     private Player playerInTurn;
     private boolean mutualGiveUp;
+    private boolean winCondition;
 
     private Game(){
+        this.winCondition = false;
     	this.factory = new CharacterFactory();
         this.log = new Log();
         this.playerLoader = new PlayerLoader();
@@ -116,6 +118,10 @@ public class Game {
                 if (weapon.getEnabled()) {
                     atackMsg += characterName + " atacked with "+weaponName+"\n";
                     atackMsg += dealDamage(weapon);
+                    if(winCondition)
+                        endGame();
+                    else
+                        nextTurn();//Paso de turno al atacar
                     return atackMsg;
                 }
                 else
@@ -127,6 +133,9 @@ public class Game {
         }
         else
             return "Character does not exist";
+    }
+
+    private void endGame() {
     }
 
     private String dealDamage(Weapon weapon){
@@ -145,15 +154,28 @@ public class Game {
     }
 
     public String surrender(){
-
+        winCondition = true;
+        playerInTurn.giveUp();
+        endGame();
+        return playerInTurn.getId()+" gave up";
     }
 
     public String mutualGiveUp(){//Tienen que estar los dos de acuerdo
-
+        winCondition = true;
+        playerInTurn.giveUp();
+        enemyPlayer().giveUp();
+        return  "Both players gave up";
     }
 
-    public String reloadWeapons(){
-
+    public String reloadWeapons(String characterName){
+        Character character = playerInTurn.getCharacter(characterName);
+        boolean canReload = true;
+        for (Weapon weapon:character.getWeapons()){
+            if(weapon.getEnabled())
+                canReload = false;
+        }
+        if (canReload)
+            character.reloadWeapons();
     }
 
     public String wildCard(String[] args){//Si se reciben dos armas o si s reciben dos character
@@ -164,12 +186,16 @@ public class Game {
     }
 
     public String selectPlayer(){//Creo que es un command propio del cliente o hay que seleccionar para atacar?
-
+        return "";
     }
 
     public String passTurn(){
-
+        String msg = playerInTurn.getId() + " passed turn";
+        nextTurn();
+        return msg;
     }
+
+
     
 }
 
