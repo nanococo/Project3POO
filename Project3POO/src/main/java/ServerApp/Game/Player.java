@@ -14,13 +14,13 @@ public class Player {
     private final ObjectOutputStream outputStream;
     private PlayerData data;
     private Character characters[];
-    private Weapon weapons[] = new Weapon[5];
     private int NUMBER_OF_CHARACTERS = 5;
     private  String names[] = {
             "Pistola","Cuchillo","Bomba","Globo",
             "Espada","Bazooka","Tenedor","Puños",
             "Garras","Hacha","Laser"
     };
+    private Player selectedCharacter;
     
 
     public Player(Socket socket) throws IOException {
@@ -40,8 +40,16 @@ public class Player {
         return data.getId();
     }
 
-    Character[] getCharacter() {
+    public Character[] getCharacters() {
         return characters;
+    }
+
+    public Character getCharacter(String character){
+        for (Character chare:characters){
+            if(chare.getName() == character)
+                return chare;
+        }
+        return  null;
     }
 
     public ObjectOutputStream getObjectOutput(){
@@ -51,7 +59,12 @@ public class Player {
     private void generateWeapons(){
         shuffleArray();
         for(int i = 0;i<5;i++){
-            weapons[i] = new Weapon(names[i]);
+            Character character = characters[i];
+            for(int j =0;j<5;j++){
+                Weapon weapon = character.getWeapons()[j];
+                weapon = new Weapon(names[j]);
+            }
+
         }
     }
 

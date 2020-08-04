@@ -17,12 +17,16 @@ public class Game {
     public PlayerLoader playerLoader;
     public Server server;
 
+    private Player playerInTurn;
+    private boolean mutualGiveUp;
+
     private Game(){
     	this.factory = new CharacterFactory();
         this.log = new Log();
         this.playerLoader = new PlayerLoader();
     }
 
+    //Pre game settings
 
     public static Game getInstance(){
         if(game != null) return game;
@@ -43,7 +47,7 @@ public class Game {
     }
     
     public void setCharacters(Player player){
-        for (Character character : player.getCharacter()) {
+        for (Character character : player.getCharacters()) {
             int random = new Random().nextInt(factory.numeroDePersonajes());
             character = factory.getCharacter(random);
         }
@@ -55,6 +59,116 @@ public class Game {
             index++;
         players[index] = new Player(socket);
         return players[index];
+    }
+
+    //In game methods
+
+    private void nextTurn(){
+        if(playerInTurn == players[0])
+            playerInTurn = players[1];
+        else
+            playerInTurn = players[0];
+    }
+
+    private String doubleAtack(String character1,String weapon1,String character2,String weapon2){
+        String msg = "";
+        msg+=atack(character1,weapon1);//Cuidado aca porque si no existe la segunda arma ya se va a haber realizado el primer ataque
+        msg += "\n";
+        msg+=atack(character2,weapon2);
+        return  msg;
+    }
+
+    private String doubleWeapon(String character,String weapon1,String weapon2){
+        String msg = "";
+        msg+=atack(character,weapon1);
+        msg+="\n";
+        msg+=atack(character,weapon2);
+        return msg;
+    }
+
+
+    private boolean isInTurn(Player player){
+        return  player==playerInTurn;
+    }
+
+    private  boolean isInTurn(String playerId){
+        return playerId == playerInTurn.getId();
+    }
+
+    private Player enemyPlayer(){
+        for (Player player:players){
+            if(player != playerInTurn)
+                return  player;
+        }
+        return  null;
+    }
+
+    private boolean weaponEnabled(Weapon weapon){
+        return weapon.getEnabled();
+    }
+
+    public String atack(String characterName,String weaponName){//If is in turn?
+        Character character = playerInTurn.getCharacter(characterName);
+        String atackMsg = "";
+        if(character != null){
+            Weapon weapon = character.getWeapon(weaponName);
+            if (weapon != null){
+                if (weapon.getEnabled()) {
+                    atackMsg += characterName + " atacked with "+weaponName+"\n";
+                    atackMsg += dealDamage(weapon);
+                    return atackMsg;
+                }
+                else
+                    return "Weapon already used";//Error msg
+            }
+            else{
+                return "Weapon does not exist";
+            }
+        }
+        else
+            return "Character does not exist";
+    }
+
+    private String dealDamage(Weapon weapon){
+        String msg = "";
+        Player enemy = enemyPlayer();
+        int[] damages = weapon.atack();
+        for (Character character:enemy.getCharacters()){//El dano hace return del estado del personaje
+            int damage = damages[character.getType().ordinal()];
+            boolean alive = character.recieveDamage(damage);
+            msg += character.getName()+" recieved " +damage+"% damage";
+            if(!alive)
+                msg+=" and died";
+            msg+= "\n";
+        }
+        return msg;
+    }
+
+    public String surrender(){
+
+    }
+
+    public String mutualGiveUp(){//Tienen que estar los dos de acuerdo
+
+    }
+
+    public String reloadWeapons(){
+
+    }
+
+    public String wildCard(String[] args){//Si se reciben dos armas o si s reciben dos character
+            if(args.length == 3)
+                return doubleWeapon(args[0],args[1],args[2]);
+            else
+                return doubleAtack(args[0],args[1],args[2],args[3]);
+    }
+
+    public String selectPlayer(){//Creo que es un command propio del cliente o hay que seleccionar para atacar?
+
+    }
+
+    public String passTurn(){
+
     }
     
 }
