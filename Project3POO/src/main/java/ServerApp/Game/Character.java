@@ -7,6 +7,7 @@ public class Character implements Serializable,Cloneable{
     Types type;
     String name;
     String path;
+    public String getPath;
  
     public Character(Types type, String name, String path) {
         this.type = type;
@@ -27,5 +28,9 @@ public class Character implements Serializable,Cloneable{
 
     public String getName() {
         return name;
+    }
+    
+    public String getPath(){
+    return path;
     }
 }

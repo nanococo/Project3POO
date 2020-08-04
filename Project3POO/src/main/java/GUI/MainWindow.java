@@ -13,6 +13,7 @@ import java.awt.event.KeyListener;
 import javax.swing.text.Style;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
+import ServerApp.Game.Character;
 
 /**
  *
@@ -20,7 +21,7 @@ import javax.swing.text.StyledDocument;
  */
 public class MainWindow extends javax.swing.JFrame implements IInput,IOutput {
 
-    public StyledDocument document;
+    public StyledDocument document;//Guardar una referencia de los characters para hacer las cargas de los personajes
     private Color NEGRO = new Color(50, 50, 50);
     //Tamano imagenes personaje 133x377
     //Tamano imagenes personaje ataque 317x243
@@ -394,18 +395,25 @@ public class MainWindow extends javax.swing.JFrame implements IInput,IOutput {
     public void printConsoleMessage(String message,boolean trace){
         print(message+"\n", trace,Color.RED);
     }
-    
-    public void setCharacter(/**/){//Usa la referencia que tenga los jugadores solo necesita actualizar su hp
+                                                        //GUARDAR REFERENCIAS DE LAS ESTRUCTURAS QUE SE USAN EN LA INTERFAZ PARA ACTUALIZAR LOS LABELS SI ES NECESARIO
+    public void setCharacter(/*Character[] characters*/){//USA EL CHARACTER PARA SACARLE LAS ARMAS Y NOMBRES Y PATHS DE LAS IMAGENES
         Dimension dimsension = new Dimension(this.pnlCharacter.getSize().width/5, this.pnlCharacter.getSize().height);
+        /*for (int i = 0; i < 5; i++) { //Usando los datos reales
+            Character charac = characters[i];
+            PersonajeLabel pl = new PersonajeLabel(charac.getName(), charac.getPath);
+            pl.setBounds(dimsension.width*i,0,dimsension.width,dimsension.height);
+            pl.setBackground(NEGRO);
+            pnlCharacter.add(pl);
+        }*/
         for (int i = 0; i < 5; i++) {
-            PersonajeLabel pl = new PersonajeLabel("Dummy"+String.valueOf(i));
+            PersonajeLabel pl = new PersonajeLabel("Dummy"+String.valueOf(i),"");
             pl.setBounds(dimsension.width*i,0,dimsension.width,dimsension.height);
             pl.setBackground(NEGRO);
             pnlCharacter.add(pl);
         }
     }
     
-    public void setRanks(){//Usa el archivo o la estructura de jugadores guardados y toma los 10 de mayor puntaje
+    public void setRanks(/*String rank*/){//Usa el archivo o la estructura de jugadores guardados y toma los 10 de mayor puntaje PIDE UN STRING ENVIADO POR UNA FUNCION DE EL PLAYERLOADER
         String rank = "RANKING\n";
         for (int i = 0; i < 10; i++) {
             rank += String.valueOf(i+1)+ ".player "+String.valueOf(i)+"\n";
@@ -413,9 +421,15 @@ public class MainWindow extends javax.swing.JFrame implements IInput,IOutput {
         txtAreaRank.setText(rank);
     }
     
-    public void setWeapons(){
-        Dimension dimension = pnlWeapn.getSize();
+    public void setWeapons(/*Character character o String[]*/){//PIDE EL OBJETO CHARACTER SI SOLO ATACA UNO Y EL ARRAY DE DANO RECIBIDO SE USA CON EL COMANDO SELECT
+        Dimension dimension = pnlWeapn.getSize();               //COMO LOS DANOS DE LAS ARMAS NO CAMBIAN SE PUEDE GUARDAR UNA REFERENCIA DE LOS LABELS DESDE LA PRIMERA VEZ QUE SE CARGARN
         int labelHeigth = dimension.height/5;
+        for(int i = 0;i<5;i++){
+            WeaponInfoLabel wil = new WeaponInfoLabel();
+            wil.setBounds(0, labelHeigth*i, dimension.width, labelHeigth);
+            wil.createLabels("weapon"+String.valueOf(i), null);
+            pnlWeapn.add(wil);
+        }
         for(int i = 0;i<5;i++){
             WeaponInfoLabel wil = new WeaponInfoLabel();
             wil.setBounds(0, labelHeigth*i, dimension.width, labelHeigth);
@@ -424,21 +438,23 @@ public class MainWindow extends javax.swing.JFrame implements IInput,IOutput {
         }
     }
     
-    public void setAtack(){
+                        
+    public void setAtack(/*Character o String[] o IMessage*/){//PIDE EL OBJETO CHARACTER SI SOLO ATACA UNO Y EL ARRAY DE DANO ENVIADO(INDIVIDUAL O A TODOS)
         Dimension dimension = pnlAtackInfo.getSize();
+                                              //Character values 123 y el dano
         AtackInfoLabel ail = new AtackInfoLabel("", "", "", "");
         ail.setBounds(0,0,dimension.width,dimension.height);
         pnlAtackInfo.add(ail);
     }
     
-    public void setAtacked(){
+    public void setAtacked(){//Recibe el estado del ataque PIDE EL OBJETO CHARACTER SI SOLO ATACA UNO Y EL ARRAY DE DANO RECIBIDO
         AtackedByInfoLabel abl = new AtackedByInfoLabel("", "", "", null);
         Dimension dimension = pnlAtackedInfo.getSize();
         abl.setBounds(0, 0, dimension.width, dimension.height);
         pnlAtackedInfo.add(abl);
     }
     
-    public void setInfoEnemy(){//Usa el historial del jugador enemigo
+    public void setInfoEnemy(){//Usa el historial del jugador enemigo PIDE EL OBJETO HISTORIAL
         String info = "Enemy\n"+
                        "Wins:"+"\n"+
                        "Loses:"+"\n"+
@@ -449,7 +465,7 @@ public class MainWindow extends javax.swing.JFrame implements IInput,IOutput {
         txtAreaEnemyInfo1.setText(info);
     }
     
-    public void setMyInfo(){//Usa el historial del jugador actual
+    public void setMyInfo(){//Usa el historial del jugador actual PIDE EL OBJETO HISTORIAL
         String info = "MyInfo\n"+
                        "Wins:"+"\n"+
                        "Loses:"+"\n"+

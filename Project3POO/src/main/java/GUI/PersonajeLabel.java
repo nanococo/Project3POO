@@ -24,7 +24,7 @@ public class PersonajeLabel extends JLabel{
     JLabel name;
     JLabel hp;
 
-    public PersonajeLabel(String name) {
+    public PersonajeLabel(String name,String path) {
         this.setOpaque(true);
         this.name = new JLabel();
         this.hp = new JLabel();
@@ -38,6 +38,7 @@ public class PersonajeLabel extends JLabel{
         this.hp.setBounds(0,50,30,20);
 
         try{
+            //File file = new File(path);
             File file = new File("C:\\GitHub_Projects\\Project3POO\\src\\main\\resources\\Images\\toledoArt.jpg");
             this.setIcon(new ImageIcon(ImageIO.read(file)));
         } catch (Exception e){
