@@ -14,16 +14,15 @@ import java.awt.event.KeyListener;
  *
  * @author Fernando Alvarez
  */
-public class TestPlayer implements KeyListener {
+public class ClientPlayer implements KeyListener {
     
     Client client;
     MainWindow playerWindow;
+    String id;
 
-    public TestPlayer() {
+    public ClientPlayer(String id) {
         this.playerWindow = new MainWindow(this);
-
-
-
+        this.id = id;
         client = new Client(playerWindow);
         playerWindow.setVisible(true);
     }

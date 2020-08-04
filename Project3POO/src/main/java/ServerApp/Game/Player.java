@@ -34,4 +34,8 @@ public class Player {
     Character[] getCharacter() {
         return characters;
     }
+
+    public ObjectOutputStream getObjectOutput(){
+        return outputStream;
+    }
 }

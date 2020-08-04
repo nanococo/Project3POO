@@ -49,11 +49,12 @@ public class Game {
         }
     }
 
-    public void initPlayer(Socket socket) throws IOException {
+    public Player initPlayer(Socket socket) throws IOException {
         int index = 0;
         if(players[index] != null)
             index++;
         players[index] = new Player(socket);
+        return players[index];
     }
     
 }

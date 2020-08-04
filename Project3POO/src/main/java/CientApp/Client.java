@@ -3,6 +3,7 @@ package CientApp;
 import GUI.MainWindow;
 
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 public class Client {
@@ -27,6 +28,7 @@ public class Client {
         }
     }
 
+
     public void closeClient(){
         // close the connection
         try {
@@ -42,4 +44,6 @@ public class Client {
     public void sendMessage(){
         this.keyListener.getInput();
     }
+
+
 }

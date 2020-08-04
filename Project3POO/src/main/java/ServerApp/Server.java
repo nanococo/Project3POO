@@ -15,6 +15,7 @@ public class Server{
     private final List<Listener> listeners = new ArrayList<>();
     private ServerSocket serverSocket;
     private Connector connector;
+    private Game game;
 
     public List<Socket> getClients() {
         return clients;
@@ -29,6 +30,7 @@ public class Server{
     public Server(int port) {
         // starts server and waits for a connection
         try {
+            this.game = Game.getInstance();
             this.serverSocket = new ServerSocket(port);
             System.out.println("Server started");
 
@@ -66,7 +68,11 @@ public class Server{
             listener.kill();
         }
     }
-    
+
+    public Game getGame() {
+        return game;
+    }
+
 //    public void sendToAll(IMessage message) throws IOException{
 //        for (Socket client : clients) {
 //            new ObjectOutputStream(client.getOutputStream()).writeObject(message);
