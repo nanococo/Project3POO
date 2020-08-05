@@ -1,7 +1,10 @@
 package CientApp;
 
 
+import messaging.GenericMessage;
+
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 
@@ -22,12 +25,18 @@ public final class GlobalConfigurations {
         globalConfigurations = new GlobalConfigurations();
         try{
             socket = new Socket("127.0.0.1",5000);
+            System.out.println("Connected");
         } catch (IOException e){
             System.out.println(e.getMessage());
         }
 
         return globalConfigurations;
     }
+
+    public static void sendMessageToServer(String commandName, ObjectOutputStream outputStream, String... params) throws IOException {
+        outputStream.writeObject(new GenericMessage(commandName, params));
+    }
+
 
     public Socket getSocket(){
         return socket;

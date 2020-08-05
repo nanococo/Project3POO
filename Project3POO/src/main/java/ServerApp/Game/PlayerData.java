@@ -5,26 +5,37 @@
  */
 package ServerApp.Game;
 
-import java.io.Serializable;
+import Messaging.BaseMessage;
 
 /**
  *
  * @author Fernando Alvarez
  */
-public class PlayerData implements Serializable{
+public class PlayerData extends BaseMessage {
     
     private final String id;
-    private History history; 
+    private String enemyID;
+    private final History history;
+
 
     public PlayerData(String id) {
+        super(PlayerData.class.getSimpleName());
         this.id = id;
         this.history = new History();
+    }
+
+    public String getEnemyID() {
+        return enemyID;
+    }
+
+    public void setEnemyID(String enemyID) {
+        this.enemyID = enemyID;
     }
 
     public String getId() {
         return id;
     }
-    
+
     public void incrementValue(History.enumValues value){
         history.addValue(value);
     }

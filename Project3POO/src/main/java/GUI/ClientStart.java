@@ -5,9 +5,9 @@
  */
 package GUI;
 
-import CientApp.Client;
 import CientApp.ClientPlayer;
-import javax.swing.JOptionPane;
+
+import javax.swing.*;
 
 /**
  *

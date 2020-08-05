@@ -1,7 +1,9 @@
 package ServerApp.CommandManager;
 
+import ServerApp.CommandManager.Commands.Attack;
 import ServerApp.CommandManager.Commands.EchoCommand;
 import ServerApp.CommandManager.Commands.ICommand;
+import ServerApp.CommandManager.Commands.PlayerSetId;
 
 import java.util.HashMap;
 
@@ -12,6 +14,8 @@ public class CommandManager {
     private CommandManager(){
         //Use this method to register commands
         registerCommand(EchoCommand.NAME, EchoCommand.class);
+        registerCommand(PlayerSetId.NAME, PlayerSetId.class);
+        registerCommand(Attack.NAME, Attack.class);
     }
 
     public static CommandManager getInstance(){

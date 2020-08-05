@@ -3,7 +3,8 @@ package ServerApp;
 import ServerApp.Game.Game;
 import ServerApp.Game.Player;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 public class Connector extends Thread {
@@ -23,7 +24,7 @@ public class Connector extends Thread {
                 System.out.println("Waiting for a client ...");
                 Socket client = server.getServerSocket().accept();
                 server.getClients().add(client);
-                server.getGame().initPlayer(client);//Pasando el socket al jugador
+                Player player = server.getGame().initPlayer(client);//Pasando el socket al jugador
 
                /* if(Game.getInstance().players[0]==null){
                     Game.getInstance().players[0] = new Player(client);
@@ -36,6 +37,8 @@ public class Connector extends Thread {
                     Game.getInstance().players[1].sendMessageToPlayer("SetClientID", "DEF");
                     Game.getInstance().players[1].sendMessageToPlayer("PrintConsole", "Players Connected");
                 }*/
+
+
                 Listener listener = new Listener(client);
                 listener.start();
                 server.getListeners().add(listener);

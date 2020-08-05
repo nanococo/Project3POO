@@ -7,19 +7,19 @@ import messaging.GenericMessage;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.net.Socket;
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class KeyListener  {
 
-    private final ObjectOutputStream outputStream;
-    private final IInput input;//Cualquier clase que implemente Iinput
 
-    public KeyListener(Socket socket, IInput input) throws IOException {
+    private final IInput input;//Cualquier clase que implemente Iinput
+    private final ObjectOutputStream outputStream;
+
+    public KeyListener(IInput input, ObjectOutputStream outputStream) {
         this.input = input;
-        this.outputStream = new ObjectOutputStream(socket.getOutputStream());
+        this.outputStream = outputStream;
     }
 
     
