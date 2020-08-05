@@ -25,6 +25,7 @@ public class CharacterFactory {
             characterList = new HashMap<>();
             CharacterLoader.saveCharacter(characterList);
         }
+        imprimir();
     }
     
     public void saveCharacter(Character character){//Anadir aca otras validaciones
