@@ -21,7 +21,7 @@ public class WeaponInfoLabel extends JLabel{
         this.setOpaque(true);
     }
     
-   public final void createLabels(String name, String[] values){//Meter a un array
+   public final void createLabels(String name, int[] values){//Meter a un array
         //1/4 y el resto dividido entre 10
         Dimension dimension = getSize();
         int nameWidthDimension = dimension.width/4;
@@ -30,7 +30,7 @@ public class WeaponInfoLabel extends JLabel{
         lblName.setBounds(0,0,nameWidthDimension,dimension.height);
         this.add(lblName);
         for (int i = 0; i < 10; i++) {
-            JLabel label = new JLabel(String.valueOf(i));
+            JLabel label = new JLabel(String.valueOf(values[i]));
             label.setBounds((labelWidth*i)+nameWidthDimension, 0, labelWidth, dimension.height);
             this.add(label);
         }

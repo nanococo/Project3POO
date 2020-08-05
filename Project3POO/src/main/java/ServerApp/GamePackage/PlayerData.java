@@ -17,7 +17,11 @@ public class PlayerData extends BaseMessage implements Comparable<PlayerData>{
     private PlayerData enemyData;//Se tienen que enviar despues de que esten conectados los 2 clientes
     private final History history;
     private String rank;
+    private Character[] character;
 
+    public Character[] getCharacter() {
+        return character;
+    }
 
     public PlayerData(String id) {
         super(PlayerData.class.getSimpleName());
@@ -67,5 +71,9 @@ public class PlayerData extends BaseMessage implements Comparable<PlayerData>{
             return -1;
         else
             return 1;
+    }
+
+    public String getHistory() {
+        return history.toString();
     }
 }

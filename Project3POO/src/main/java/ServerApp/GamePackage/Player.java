@@ -67,8 +67,9 @@ public class Player {
         for(int i = 0;i<5;i++){
             Character character = characters[i];
             for(int j =0;j<5;j++){
-                Weapon weapon = character.getWeapons()[j];
-                weapon = new Weapon(names[j]);
+
+                character.getWeapons()[j] = new Weapon(names[j]);
+
             }
 
         }

@@ -53,9 +53,10 @@ public class Game {
     }
     
     public void setCharacters(Player player){
-        for (Character character : player.getCharacters()) {
+        for (int i = 0;i<5;i++) {
             int random = new Random().nextInt(factory.numeroDePersonajes());
-            character = factory.getCharacter(random);
+            System.out.println(random);
+            player.getCharacters()[i] = factory.getCharacter(random);
         }
     }
 

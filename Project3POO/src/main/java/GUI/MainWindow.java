@@ -12,6 +12,7 @@ import javax.swing.text.Style;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import ServerApp.GamePackage.Character;
+import ServerApp.GamePackage.PlayerData;
 
 /**
  *
@@ -29,7 +30,6 @@ public class MainWindow extends javax.swing.JFrame implements IInput,IOutput {
         initComponents();
         this.setTitle("xd.exe");
         initConsole(listener);
-        initData();
     }
 
     /**
@@ -324,14 +324,14 @@ public class MainWindow extends javax.swing.JFrame implements IInput,IOutput {
         document = this.txtOutPut.getStyledDocument();
     }
     
-    public void initData(){
-        /*setCharacter();
-        setRanks();
-        setWeapons();*/
-        setAtacked();
-        setAtack();
-        setInfoEnemy();
-        setMyInfo();
+    public void initData(PlayerData playerData){
+        setCharacter(playerData.getCharacter());
+        setRanks(playerData.getRank());
+        setWeapons(playerData.getCharacter());
+        //setAtacked(null);
+        //setAtack(null);
+        setInfoEnemy(playerData.getHistory());
+        setMyInfo(playerData.getEnemyData().getHistory());
     }
 
     
@@ -419,19 +419,18 @@ public class MainWindow extends javax.swing.JFrame implements IInput,IOutput {
             weaponLabel.setLocation(0,0);
             weaponLabel.setSize(pnlWeapn.getSize());
             Character currentChar = characters[j];
-            for (int i = 0; i < 5; i++) {//Crear uno por cada char y guardarlos
+            for (int i = 0; i < 5; i++) {
                 WeaponInfoLabel wil = new WeaponInfoLabel();
                 wil.setBounds(0, labelHeigth * i, dimension.width, labelHeigth);
-               // wil.createLabels(currentChar.getWeapons()[i].getName(), currentChar.getWeapons()[i].getDamages());
-                //pnlWeapn.add(wil);Se setea el primero por defecto y luego con cada select se cambia el elabel
+                wil.createLabels(currentChar.getWeapons()[i].getName(), currentChar.getWeapons()[i].getDamages());
                 weaponLabel.labels[i] = wil;
             }
             characterLabels[j].weaponsInfoLabel = weaponLabel;
         }
         pnlWeapn.add(characterLabels[0]);
     }
-    
-                        
+
+    //Nombre,Dano recibido
     public void setAtack(/*Character o String[] o IMessage*/){//PIDE EL OBJETO CHARACTER SI SOLO ATACA UNO Y EL ARRAY DE DANO ENVIADO(INDIVIDUAL O A TODOS)
         Dimension dimension = pnlAtackInfo.getSize();
                                               //Character values 123 y el dano
@@ -439,7 +438,7 @@ public class MainWindow extends javax.swing.JFrame implements IInput,IOutput {
         ail.setBounds(0,0,dimension.width,dimension.height);
         pnlAtackInfo.add(ail);
     }
-    
+    //Nombre,Dano recibido
     public void setAtacked(){//Recibe el estado del ataque PIDE EL OBJETO CHARACTER SI SOLO ATACA UNO Y EL ARRAY DE DANO RECIBIDO
         AtackedByInfoLabel abl = new AtackedByInfoLabel("", "", "", null);
         Dimension dimension = pnlAtackedInfo.getSize();
@@ -447,33 +446,19 @@ public class MainWindow extends javax.swing.JFrame implements IInput,IOutput {
         pnlAtackedInfo.add(abl);
     }
     
-    public void setInfoEnemy(){//Usa el historial del jugador enemigo PIDE EL OBJETO HISTORIAL
-        String info = "Enemy\n"+
-                       "Wins:"+"\n"+
-                       "Loses:"+"\n"+
-                       "Atacks:"+"\n"+
-                       "Success:"+"\n"+
-                       "Failed:"+"\n"+
-                        "GiveUp:"+"\n";
+    public void setInfoEnemy(String data){//Usa el historial del jugador enemigo PIDE EL OBJETO HISTORIAL
+        String info = "Enemy\n"+data;
         txtAreaEnemyInfo1.setText(info);
     }
     
-    public void setMyInfo(){//Usa el historial del jugador actual PIDE EL OBJETO HISTORIAL
-        String info = "MyInfo\n"+
-                       "Wins:"+"\n"+
-                       "Loses:"+"\n"+
-                       "Atacks:"+"\n"+
-                       "Success:"+"\n"+
-                       "Failed:"+"\n"+
-                        "GiveUp:"+"\n";
-        /*for (int i = 0; i < 10; i++) {
-            
-        }*/
+    public void setMyInfo(String data){//Usa el historial del jugador actual PIDE EL OBJETO HISTORIAL
+        String info = "MyInfo\n"+data;
         txtAreaEnemyInfo.setText(info);
     }
 
     public void setUsedWeapon(){
-
+        //If ataque exitoso
+        //CharacterLabel[x].weaponLabel["nombre"].setBckrnd(red);
     }
 
     @Override
