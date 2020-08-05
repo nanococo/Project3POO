@@ -51,8 +51,21 @@ public class Game {
         if(players[index].getData() != null)
             index++;
         players[index].setData(playerLoader.searchPlayer(id));
+        if(index == 1){
+            completeData();
+        }
     }
-    
+
+    private void completeData() {
+        int enemy = 1;
+        for (int i = 0;i<2;i++){
+            players[i].getData().setEnemyData(players[enemy].getData());
+            players[i].getData().setRank(getRank());
+            players[i].getData().setCharacter(players[i].getCharacters());
+            enemy--;
+        }
+    }
+
     public void setCharacters(Player player){
         for (int i = 0;i<5;i++) {
             int random = new Random().nextInt(factory.numeroDePersonajes());
