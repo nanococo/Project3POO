@@ -23,6 +23,7 @@ public class Listener extends Thread {
     @Override
     public void run() {
         while(!killSwitch){
+
             try{
                 
                 IMessage message = (IMessage) new ObjectInputStream(new BufferedInputStream(client.getInputStream())).readObject();

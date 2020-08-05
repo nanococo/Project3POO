@@ -176,6 +176,7 @@ public class Game {
         }
         if (canReload)
             character.reloadWeapons();
+        return playerInTurn.getId()+" reloaded weapons";
     }
 
     public String wildCard(String[] args){//Si se reciben dos armas o si s reciben dos character
