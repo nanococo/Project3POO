@@ -31,6 +31,10 @@ public class PlayerData extends BaseMessage implements Comparable<PlayerData>{
         this.rank = "";
     }
 
+    public void setCharacter(Character[] character) {
+        this.character = character;
+    }
+
     public PlayerData getEnemyData() {
         return enemyData;
     }
