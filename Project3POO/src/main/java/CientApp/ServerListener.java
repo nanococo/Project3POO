@@ -29,6 +29,7 @@ public class ServerListener extends Thread {
 
                 if(key.equals("PlayerData")){
                     PlayerData playerData = ((PlayerData) message);
+                    System.out.println(playerData.getId());
                     mainWindow.initData(playerData);
 
                 } else {
