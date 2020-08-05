@@ -43,6 +43,7 @@ public class Connector extends Thread {
                 listener.start();
                 server.getListeners().add(listener);
                 System.out.println("Client Accepted");
+
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }

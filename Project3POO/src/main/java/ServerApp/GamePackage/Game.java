@@ -69,7 +69,6 @@ public class Game {
     public void setCharacters(Player player){
         for (int i = 0;i<5;i++) {
             int random = new Random().nextInt(factory.numeroDePersonajes());
-            System.out.println(random);
             player.getCharacters()[i] = factory.getCharacter(random);
         }
     }
