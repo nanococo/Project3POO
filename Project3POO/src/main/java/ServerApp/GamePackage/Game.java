@@ -74,8 +74,10 @@ public class Game {
 
     public Player initPlayer(Socket socket) throws IOException {
         int index = 0;
-        if(players[index] != null)
+        playerInTurn = players[0];
+        if(players[index] != null) {
             index++;
+        }
         players[index] = new Player(socket);
         return players[index];
     }
@@ -121,9 +123,13 @@ public class Game {
     }
 
     public void attack(String characterName, String weaponName){//If is in turn?
+        System.out.println(characterName);
+        System.out.println(playerInTurn.getCharacter(characterName));
         Character character = playerInTurn.getCharacter(characterName);
         String attackMsg = "";
-
+        for (Character charac:playerInTurn.getCharacters()){
+            System.out.println(charac.getName());
+        }
 
         if(character != null){
             Weapon weapon = character.getWeapon(weaponName);

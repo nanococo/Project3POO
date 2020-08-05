@@ -57,8 +57,10 @@ public class Player {
 
     public Character getCharacter(String character){
         for (Character chare:characters){
-            if(chare.getName() == character)
+            System.out.println("Comparando"+chare.getName()+" "+character);
+            if(chare.getName().equals(character)) {
                 return chare;
+            }
         }
         return  null;
     }

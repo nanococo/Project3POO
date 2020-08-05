@@ -46,7 +46,7 @@ public class Character implements Serializable,Cloneable{
 
     public Weapon getWeapon(String weaponName){
         for (Weapon weapon:weapons){
-            if(weapon.getName() == weaponName)
+            if(weapon.getName().equals(weaponName))
                 return  weapon;
         }
         return  null;

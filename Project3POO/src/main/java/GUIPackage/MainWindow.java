@@ -484,7 +484,7 @@ public class MainWindow extends javax.swing.JFrame implements IInput,IOutput {
 
     @Override
     public void write(String string) {
-        printConsoleMessage(string, true);
+        printConsoleMessage(string, false);
     }
 
     private void updateWeaponInfo(PersonajeLabel label){
