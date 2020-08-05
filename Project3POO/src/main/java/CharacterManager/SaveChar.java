@@ -131,6 +131,8 @@ public class SaveChar extends javax.swing.JFrame {
         }
         this.imagePath = fc.getSelectedFile().getAbsolutePath();
         System.out.println(imagePath);
+        File file = new File(imagePath);
+        imagePath = file.getName();
         jButton3.setEnabled(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 

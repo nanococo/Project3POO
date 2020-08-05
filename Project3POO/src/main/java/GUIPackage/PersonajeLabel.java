@@ -21,8 +21,10 @@ public class PersonajeLabel extends JLabel{
     JLabel name;
     JLabel hp;
     WeaponLabel weaponsInfoLabel;
+    String path = System.getProperty("user.dir")+"/src/main/resources/";
 
-    public PersonajeLabel(String name,String path) {
+    public PersonajeLabel(String name,String fileName) {
+        path = path+fileName;
         this.setOpaque(true);
         this.name = new JLabel();
         this.hp = new JLabel();

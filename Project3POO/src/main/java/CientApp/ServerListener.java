@@ -29,7 +29,6 @@ public class ServerListener extends Thread {
 
                 if(key.equals("PlayerData")){
                     PlayerData playerData = ((PlayerData) message);
-                    //////
 
 
                 } else {
