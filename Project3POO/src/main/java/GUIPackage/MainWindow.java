@@ -330,9 +330,10 @@ public class MainWindow extends javax.swing.JFrame implements IInput,IOutput {
         setWeapons(playerData.getCharacter());
         //setAtacked(null);
         //setAtack(null);
-        setInfoEnemy(playerData.getHistory());
-        setMyInfo(playerData.getEnemyData().getHistory());
-        setVisible(true);
+        setInfoEnemy(playerData.getHistory(),playerData.getId());
+        setMyInfo(playerData.getEnemyData().getHistory(),playerData.getId());
+        validate();
+        repaint();
     }
 
     
@@ -448,13 +449,13 @@ public class MainWindow extends javax.swing.JFrame implements IInput,IOutput {
         pnlAtackedInfo.add(abl);
     }
     
-    public void setInfoEnemy(String data){//Usa el historial del jugador enemigo PIDE EL OBJETO HISTORIAL
-        String info = "Enemy\n"+data;
+    public void setInfoEnemy(String data,String playername){//Usa el historial del jugador enemigo PIDE EL OBJETO HISTORIAL
+        String info = "Enemy "+playername+":\n"+data;
         txtAreaEnemyInfo1.setText(info);
     }
     
-    public void setMyInfo(String data){//Usa el historial del jugador actual PIDE EL OBJETO HISTORIAL
-        String info = "MyInfo\n"+data;
+    public void setMyInfo(String data,String playername){//Usa el historial del jugador actual PIDE EL OBJETO HISTORIAL
+        String info = "MyInfo "+playername+":\n"+data;
         txtAreaEnemyInfo.setText(info);
     }
 
@@ -486,6 +487,7 @@ public class MainWindow extends javax.swing.JFrame implements IInput,IOutput {
         pnlWeapn.add(label.weaponsInfoLabel);
         pnlWeapn.validate();
         pnlWeapn.repaint();
+
     }
     
     public void selectCharacter(String charName){

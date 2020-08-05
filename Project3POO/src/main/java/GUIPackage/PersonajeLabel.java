@@ -25,6 +25,7 @@ public class PersonajeLabel extends JLabel{
 
     public PersonajeLabel(String name,String fileName) {
         path = path+fileName;
+        System.out.println(path);
         this.setOpaque(true);
         this.name = new JLabel();
         this.hp = new JLabel();
