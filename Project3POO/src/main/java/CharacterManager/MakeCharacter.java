@@ -5,8 +5,7 @@
  */
 package CharacterManager;
 
-import ServerApp.Game.Character;
-import java.util.HashMap;
+import ServerApp.GamePackage.Character;
 
 /**
  *

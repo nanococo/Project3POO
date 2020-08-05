@@ -1,6 +1,6 @@
 package ServerApp;
 
-import ServerApp.Game.Game;
+import ServerApp.GamePackage.Game;
 
 import java.io.IOException;
 import java.net.ServerSocket;

@@ -1,4 +1,4 @@
-package ServerApp.Game;
+package ServerApp.GamePackage;
 
 import CharacterManager.CharacterFactory;
 import FileManager.PlayerLoader;
@@ -40,7 +40,11 @@ public class Game {
     public void initGame(){
         //Desbloquea comnado o abre otra pantalla
     }
-    
+
+    public Player getPlayerInTurn() {
+        return playerInTurn;
+    }
+
     public void setPlayer(String id){
         int index = 0;
         if(players[index].getData() != null)

@@ -5,7 +5,7 @@
  */
 package CharacterManager;
 
-import ServerApp.Game.Types;
+import ServerApp.GamePackage.Types;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

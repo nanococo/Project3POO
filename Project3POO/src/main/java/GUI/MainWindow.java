@@ -5,16 +5,13 @@
  */
 package GUI;
 
-import Messaging.IMessage;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.KeyListener;
 import javax.swing.text.Style;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
-import ServerApp.Game.Character;
-import ServerApp.Game.PlayerData;
+import ServerApp.GamePackage.Character;
 
 /**
  *

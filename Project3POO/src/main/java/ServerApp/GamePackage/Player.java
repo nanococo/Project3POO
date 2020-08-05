@@ -1,4 +1,4 @@
-package ServerApp.Game;
+package ServerApp.GamePackage;
 
 import messaging.GenericMessage;
 

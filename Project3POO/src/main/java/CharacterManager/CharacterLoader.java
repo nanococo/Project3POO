@@ -6,7 +6,7 @@
 package CharacterManager;
 
 import java.util.HashMap;
-import ServerApp.Game.Character;
+import ServerApp.GamePackage.Character;
 import filemanager.FileManager;
 
 /**

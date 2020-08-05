@@ -1,9 +1,6 @@
 package ServerApp.CommandManager;
 
-import ServerApp.CommandManager.Commands.Attack;
-import ServerApp.CommandManager.Commands.EchoCommand;
-import ServerApp.CommandManager.Commands.ICommand;
-import ServerApp.CommandManager.Commands.PlayerSetId;
+import ServerApp.CommandManager.Commands.*;
 
 import java.util.HashMap;
 
@@ -16,6 +13,7 @@ public class CommandManager {
         registerCommand(EchoCommand.NAME, EchoCommand.class);
         registerCommand(PlayerSetId.NAME, PlayerSetId.class);
         registerCommand(Attack.NAME, Attack.class);
+        registerCommand(Chat.NAME, Chat.class);
     }
 
     public static CommandManager getInstance(){

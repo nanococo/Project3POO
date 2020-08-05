@@ -1,6 +1,6 @@
 package ServerApp.CommandManager.Commands;
 
-import ServerApp.Game.Game;
+import ServerApp.GamePackage.Game;
 
 public class PlayerSetId implements ICommand {
 
