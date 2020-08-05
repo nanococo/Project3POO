@@ -14,6 +14,7 @@ import javax.swing.text.Style;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import ServerApp.Game.Character;
+import ServerApp.Game.PlayerData;
 
 /**
  *
@@ -23,12 +24,13 @@ public class MainWindow extends javax.swing.JFrame implements IInput,IOutput {
 
     public StyledDocument document;//Guardar una referencia de los characters para hacer las cargas de los personajes
     private Color NEGRO = new Color(50, 50, 50);
+    private PersonajeLabel[] characterLabels = new PersonajeLabel[5];
     //Tamano imagenes personaje 133x377
     //Tamano imagenes personaje ataque 317x243
     
     public MainWindow(KeyListener listener) {
         initComponents();
-        this.setTitle("MOLTALKOMBAT.exe");
+        this.setTitle("xd.exe");
         initConsole(listener);
         initData();
     }
@@ -326,14 +328,15 @@ public class MainWindow extends javax.swing.JFrame implements IInput,IOutput {
     }
     
     public void initData(){
-        setCharacter();
+        /*setCharacter();
         setRanks();
-        setWeapons();
+        setWeapons();*/
         setAtacked();
         setAtack();
         setInfoEnemy();
         setMyInfo();
     }
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -395,47 +398,40 @@ public class MainWindow extends javax.swing.JFrame implements IInput,IOutput {
     public void printConsoleMessage(String message,boolean trace){
         print(message+"\n", trace,Color.RED);
     }
-                                                        //GUARDAR REFERENCIAS DE LAS ESTRUCTURAS QUE SE USAN EN LA INTERFAZ PARA ACTUALIZAR LOS LABELS SI ES NECESARIO
-    public void setCharacter(/*Character[] characters*/){//USA EL CHARACTER PARA SACARLE LAS ARMAS Y NOMBRES Y PATHS DE LAS IMAGENES
+
+    public void setCharacter(Character[] characters){
         Dimension dimsension = new Dimension(this.pnlCharacter.getSize().width/5, this.pnlCharacter.getSize().height);
-        /*for (int i = 0; i < 5; i++) { //Usando los datos reales
-            Character charac = characters[i];
-            PersonajeLabel pl = new PersonajeLabel(charac.getName(), charac.getPath);
-            pl.setBounds(dimsension.width*i,0,dimsension.width,dimsension.height);
-            pl.setBackground(NEGRO);
-            pnlCharacter.add(pl);
-        }*/
         for (int i = 0; i < 5; i++) {
-            PersonajeLabel pl = new PersonajeLabel("Dummy"+String.valueOf(i),"");
+            Character charac = characters[i];
+            PersonajeLabel pl = new PersonajeLabel(charac.getName(), charac.getPath());
             pl.setBounds(dimsension.width*i,0,dimsension.width,dimsension.height);
             pl.setBackground(NEGRO);
             pnlCharacter.add(pl);
         }
     }
     
-    public void setRanks(/*String rank*/){//Usa el archivo o la estructura de jugadores guardados y toma los 10 de mayor puntaje PIDE UN STRING ENVIADO POR UNA FUNCION DE EL PLAYERLOADER
-        String rank = "RANKING\n";
-        for (int i = 0; i < 10; i++) {
-            rank += String.valueOf(i+1)+ ".player "+String.valueOf(i)+"\n";
-        }
+    public void setRanks(String rank){//Usa el archivo o la estructura de jugadores guardados y toma los 10 de mayor puntaje PIDE UN STRING ENVIADO POR UNA FUNCION DE EL PLAYERLOADE
         txtAreaRank.setText(rank);
     }
-    
-    public void setWeapons(/*Character character o String[]*/){//PIDE EL OBJETO CHARACTER SI SOLO ATACA UNO Y EL ARRAY DE DANO RECIBIDO SE USA CON EL COMANDO SELECT
-        Dimension dimension = pnlWeapn.getSize();               //COMO LOS DANOS DE LAS ARMAS NO CAMBIAN SE PUEDE GUARDAR UNA REFERENCIA DE LOS LABELS DESDE LA PRIMERA VEZ QUE SE CARGARN
+
+    public void setWeapons(Character[] characters){//PIDE EL OBJETO CHARACTER SI SOLO ATACA UNO Y EL ARRAY DE DANO RECIBIDO SE USA CON EL COMANDO SELECT
+        Dimension dimension = pnlWeapn.getSize();
         int labelHeigth = dimension.height/5;
-        for(int i = 0;i<5;i++){
-            WeaponInfoLabel wil = new WeaponInfoLabel();
-            wil.setBounds(0, labelHeigth*i, dimension.width, labelHeigth);
-            wil.createLabels("weapon"+String.valueOf(i), null);
-            pnlWeapn.add(wil);
+        for(int j = 0;j<5;j++) {
+            WeaponLabel weaponLabel = new WeaponLabel();
+            weaponLabel.setLocation(0,0);
+            weaponLabel.setSize(pnlWeapn.getSize());
+            Character currentChar = characters[j];
+            for (int i = 0; i < 5; i++) {//Crear uno por cada char y guardarlos
+                WeaponInfoLabel wil = new WeaponInfoLabel();
+                wil.setBounds(0, labelHeigth * i, dimension.width, labelHeigth);
+               // wil.createLabels(currentChar.getWeapons()[i].getName(), currentChar.getWeapons()[i].getDamages());
+                //pnlWeapn.add(wil);Se setea el primero por defecto y luego con cada select se cambia el elabel
+                weaponLabel.labels[i] = wil;
+            }
+            characterLabels[j].weaponsInfoLabel = weaponLabel;
         }
-        for(int i = 0;i<5;i++){
-            WeaponInfoLabel wil = new WeaponInfoLabel();
-            wil.setBounds(0, labelHeigth*i, dimension.width, labelHeigth);
-            wil.createLabels("weapon"+String.valueOf(i), null);
-            pnlWeapn.add(wil);
-        }
+        pnlWeapn.add(characterLabels[0]);
     }
     
                         
@@ -477,6 +473,10 @@ public class MainWindow extends javax.swing.JFrame implements IInput,IOutput {
             
         }*/
         txtAreaEnemyInfo.setText(info);
+    }
+
+    public void setUsedWeapon(){
+
     }
 
     @Override

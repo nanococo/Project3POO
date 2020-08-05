@@ -23,6 +23,7 @@ public class PersonajeLabel extends JLabel{
     
     JLabel name;
     JLabel hp;
+    WeaponLabel weaponsInfoLabel;
 
     public PersonajeLabel(String name,String path) {
         this.setOpaque(true);
@@ -36,22 +37,11 @@ public class PersonajeLabel extends JLabel{
         this.name.setBackground(Color.red);
         this.name.setBounds(0,0,50,20);
         this.hp.setBounds(0,50,30,20);
-
-        try{
-            //File file = new File(path);
-            File file = new File("C:\\GitHub_Projects\\Project3POO\\src\\main\\resources\\Images\\toledoArt.jpg");
-            this.setIcon(new ImageIcon(ImageIO.read(file)));
-        } catch (Exception e){
-            //System.out.println(e.getMessage());
-        }
-
-
-
         this.add(this.name);
         this.add(this.hp);
         this.setBorder(BorderFactory.createLineBorder(Color.black));
         try{
-            File file = new File("src\\main\\resources\\toledoArt.jpg");
+            File file = new File(path);
             this.setIcon(new ImageIcon(ImageIO.read(file)));
         } catch (Exception e){
             System.out.println(e.getMessage());
@@ -61,4 +51,6 @@ public class PersonajeLabel extends JLabel{
     public void updateHp(String hp){
         this.hp.setText("%"+hp);
     }
+
+
 }

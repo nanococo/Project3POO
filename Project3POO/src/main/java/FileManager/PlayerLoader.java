@@ -5,10 +5,15 @@
  */
 package FileManager;
 
+import ServerApp.Game.History;
 import ServerApp.Game.Player;
 import ServerApp.Game.PlayerData;
 import filemanager.FileManager;
+
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  *
@@ -54,5 +59,21 @@ public class PlayerLoader {
             addPlayer(data);
         }
         return data;
+    }
+
+    public String getRank() {
+        String rank = "";
+        PlayerData[] players = playerList.values().toArray(new PlayerData[playerList.size()]);
+        int index = 0;
+        Arrays.sort(players);
+        for (int i = 0;i<10;i++){
+            rank += i+".";
+            if(index< players.length) {
+                rank += players[index].getId() + "[" + players[index].getValue(History.enumValues.ganes) + "/" + players[index].getValue(History.enumValues.perdidas) + "]";
+                index++;
+            }
+            rank+="\n";
+        }
+        return rank;
     }
 }

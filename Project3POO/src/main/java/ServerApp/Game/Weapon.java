@@ -8,6 +8,10 @@ import java.util.Random;
 public class Weapon implements Serializable {
 
 
+    public int[] getDamages() {
+        return damages;
+    }
+
     private int damages[] = new int[10];
     private String name;
     private boolean enabled;

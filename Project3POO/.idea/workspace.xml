@@ -108,6 +108,17 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.ClientStart (1)">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ClientStart (1)" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GUI.ClientStart" />
       <module name="Project3POO" />
@@ -163,17 +174,6 @@
     <configuration name="ServerStart" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ServerStart" />
       <module name="Project3POO" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -245,10 +245,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="223" y="67" width="1089" height="713" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1596636861342" />
-    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser" timestamp="1596638842383">
+    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser" timestamp="1596645865373">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1596638842383" />
+    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1596645865373" />
     <state x="498" y="214" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1596608849294">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -317,10 +317,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="209" y="73" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1595999011962" />
-    <state x="425" y="187" key="run.anything.popup" timestamp="1596557822103">
+    <state x="469" y="170" key="refactoring.ChangeSignatureDialog" timestamp="1596641576117">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1596557822103" />
+    <state x="469" y="170" key="refactoring.ChangeSignatureDialog/0.0.1536.824@0.0.1536.824" timestamp="1596641576117" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1596644013010">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1596644013010" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1596562343786">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -336,7 +340,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ServerApp/Connector.java</url>
-          <line>26</line>
+          <line>27</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>

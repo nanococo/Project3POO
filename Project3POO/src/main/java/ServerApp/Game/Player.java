@@ -26,14 +26,12 @@ public class Player {
         this.outputStream = new ObjectOutputStream(socket.getOutputStream());
         characters = new Character[NUMBER_OF_CHARACTERS];
         Game.getInstance().setCharacters(this);
+        generateWeapons();
     }
 
     public void sendMessageToPlayer(String commandName, String... params) throws IOException {
         outputStream.writeObject(new GenericMessage(commandName, params));
     }
-
-
-
 
 
     public PlayerData getData() {
@@ -85,4 +83,6 @@ public class Player {
         Collections.shuffle(list);
         names = (String[]) list.toArray();
     }
+
+
 }

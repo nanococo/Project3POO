@@ -29,8 +29,11 @@ public class History implements Serializable {
     }
     
     public int getValue(enumValues value){
-        return this.values[value.ordinal()]++;
+        return this.values[value.ordinal()];
     }
-    
+
+    public int getScore(){
+        return getValue(enumValues.ganes)-getValue(enumValues.perdidas);
+    }
     
 }

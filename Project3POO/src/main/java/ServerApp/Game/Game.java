@@ -18,7 +18,7 @@ public class Game {
     public Server server;
 
     private Player playerInTurn;
-    private boolean mutualGiveUp;
+    private boolean mutualGiveUp;//2 booleanos
     private boolean winCondition;
 
     private Game(){
@@ -167,16 +167,20 @@ public class Game {
         return  "Both players gave up";
     }
 
-    public void reloadWeapons(String characterName){
+    public String reloadWeapons(String characterName){
         Character character = playerInTurn.getCharacter(characterName);
         boolean canReload = true;
         for (Weapon weapon:character.getWeapons()){
             if(weapon.getEnabled())
                 canReload = false;
         }
-        if (canReload)
+        if (canReload) {
             character.reloadWeapons();
-        return playerInTurn.getId()+" reloaded weapons";
+            return playerInTurn.getId() + " reloaded weapons";
+        }
+        else {
+            return  "Available weapons";
+        }
     }
 
     public String wildCard(String[] args){//Si se reciben dos armas o si s reciben dos character
@@ -195,7 +199,10 @@ public class Game {
         nextTurn();
         return msg;
     }
-    
+
+    public String getRank() {
+        return this.playerLoader.getRank();
+    }
 }
 
 
