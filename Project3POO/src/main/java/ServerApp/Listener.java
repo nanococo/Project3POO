@@ -4,6 +4,7 @@ import Messaging.IMessage;
 import MessagingPackage.GenericMessage;
 import ServerApp.CommandManager.CommandManager;
 import ServerApp.CommandManager.Commands.ICommand;
+import ServerApp.GamePackage.Game;
 import ServerApp.GamePackage.Player;
 
 
@@ -28,6 +29,7 @@ public class Listener extends Thread {
 
                 String commandName = message.getKey();
                 String[] commandArgs = ((GenericMessage) message).getParams();
+                Game.getInstance().log.addToLog(commandName,commandArgs);
 
                 ICommand command = commandManager.getCommand(commandName);
                 command.execute(commandArgs);

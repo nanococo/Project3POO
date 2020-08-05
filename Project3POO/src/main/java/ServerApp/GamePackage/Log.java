@@ -5,6 +5,9 @@
  */
 package ServerApp.GamePackage;
 
+import java.io.File;
+
+
 /**
  *
  * @author Fernando Alvarez
@@ -13,12 +16,13 @@ public class Log {
     
     private String log;
         
-    public void addToLog(String msg){//Una lista en pantalla con los turnos
-        //Fecha hora comando parametros y resultado
+    public void addToLog(String msg,String [] args){
+        log += java.time.LocalDateTime.now()+" "+msg+" "+args+"\n";
     }
     
     public void getLog(){
         
     }
-    
+
+
 }
