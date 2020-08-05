@@ -3,6 +3,8 @@ package ServerApp;
 import ServerApp.GamePackage.Player;
 
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 public class Connector extends Thread {
@@ -37,7 +39,7 @@ public class Connector extends Thread {
                 }*/
 
 
-                Listener listener = new Listener(client);
+                Listener listener = new Listener(player);
                 listener.start();
                 server.getListeners().add(listener);
                 System.out.println("Client Accepted");

@@ -3,6 +3,7 @@ package ServerApp.GamePackage;
 import messaging.GenericMessage;
 
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.Arrays;
@@ -12,6 +13,7 @@ import java.util.List;
 public class Player {
 
     private final ObjectOutputStream outputStream;
+    private final ObjectInputStream inputStream;
     private PlayerData data;
     private final Character[] characters;
     private final int NUMBER_OF_CHARACTERS = 5;
@@ -24,6 +26,7 @@ public class Player {
 
     public Player(Socket socket) throws IOException {
         this.outputStream = new ObjectOutputStream(socket.getOutputStream());
+        this.inputStream = new ObjectInputStream(socket.getInputStream());
         characters = new Character[NUMBER_OF_CHARACTERS];
         Game.getInstance().setCharacters(this);
         generateWeapons();
@@ -60,6 +63,10 @@ public class Player {
 
     public ObjectOutputStream getObjectOutput(){
         return outputStream;
+    }
+
+    public ObjectInputStream getInputStream() {
+        return inputStream;
     }
 
     private void generateWeapons(){

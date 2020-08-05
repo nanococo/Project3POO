@@ -13,8 +13,18 @@ public class Chat implements ICommand {
         if(args.length<=0) return;
 
         try {
-            Game.getInstance().players[0].sendMessageToPlayer("PrintConsole", args[0]);
-            Game.getInstance().players[1].sendMessageToPlayer("PrintConsole", args[0]);
+
+            if(Game.getInstance().players[0]!=null){
+                Game.getInstance().players[0].sendMessageToPlayer("PrintConsole", args[0]);
+            }
+
+            if(Game.getInstance().players[1]!=null){
+                Game.getInstance().players[1].sendMessageToPlayer("PrintConsole", args[0]);
+            }
+
+
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }

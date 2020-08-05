@@ -11,6 +11,6 @@ public class PlayerSetId implements ICommand {
         if(args.length<=0) return;
 
         Game.getInstance().setPlayer(args[0]);
-        System.out.println("Id set");
+        System.out.println("Id set: "+args[0]);
     }
 }

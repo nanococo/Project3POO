@@ -3,20 +3,20 @@ package ServerApp;
 import Messaging.IMessage;
 import ServerApp.CommandManager.CommandManager;
 import ServerApp.CommandManager.Commands.ICommand;
+import ServerApp.GamePackage.Player;
 import messaging.GenericMessage;
 
-import java.io.BufferedInputStream;
 import java.io.ObjectInputStream;
 import java.net.Socket;
 
 public class Listener extends Thread {
 
-    private final Socket client;
+    private final Player player;
     private boolean killSwitch = false;
     private final CommandManager commandManager = CommandManager.getInstance();
 
-    public Listener(Socket client) {
-        this.client = client;
+    public Listener(Player player) {
+        this.player = player;
     }
 
 
@@ -26,7 +26,7 @@ public class Listener extends Thread {
 
             try{
 
-                IMessage message = (IMessage) new ObjectInputStream(new BufferedInputStream(client.getInputStream())).readObject();
+                IMessage message = (IMessage) player.getInputStream().readObject();
 
                 String commandName = message.getKey();
                 String[] commandArgs = ((GenericMessage) message).getParams();
@@ -36,7 +36,7 @@ public class Listener extends Thread {
                 
 
             } catch (Exception e){
-                System.out.println(e.getMessage());
+                e.printStackTrace();
             }
         }
     }

@@ -3,6 +3,7 @@ package ServerApp;
 import ServerApp.GamePackage.Game;
 
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ public class Server{
     private ServerSocket serverSocket;
     private Connector connector;
     private Game game;
+
 
     public List<Socket> getClients() {
         return clients;
@@ -55,7 +57,6 @@ public class Server{
     public void killClients(){
         for (Socket client : clients){
             try{
-                //new DataOutputStream(client.getOutputStream()).writeUTF("End");
                 client.close();
             } catch (Exception e){
                 System.out.println(e.getMessage());
