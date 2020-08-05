@@ -12,15 +12,18 @@ public class Client {
     private KeyListener keyListener;
     private ServerListener serverListener;
 
-    public Client(MainWindow input) {
+    public Client(MainWindow input, String id) {
         // establish a connection
         try {
-            System.out.println("Connected");
+
+            ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
 
             serverListener = new ServerListener(socket, this, input);
             serverListener.start();
 
-            keyListener = new KeyListener(socket, input);
+            keyListener = new KeyListener(input, outputStream);
+
+            GlobalConfigurations.sendMessageToServer("PlayerSetId", outputStream, id);
 
         }
         catch(IOException u) {

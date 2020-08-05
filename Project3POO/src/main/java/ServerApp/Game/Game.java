@@ -43,7 +43,7 @@ public class Game {
     
     public void setPlayer(String id){
         int index = 0;
-        if(players[index] != null)
+        if(players[index].getData() != null)
             index++;
         players[index].setData(playerLoader.searchPlayer(id));
     }
@@ -74,17 +74,17 @@ public class Game {
 
     private String doubleAtack(String character1,String weapon1,String character2,String weapon2){
         String msg = "";
-        msg+=atack(character1,weapon1);//Cuidado aca porque si no existe la segunda arma ya se va a haber realizado el primer ataque
+        msg+= attack(character1,weapon1);//Cuidado aca porque si no existe la segunda arma ya se va a haber realizado el primer ataque
         msg += "\n";
-        msg+=atack(character2,weapon2);
+        msg+= attack(character2,weapon2);
         return  msg;
     }
 
     private String doubleWeapon(String character,String weapon1,String weapon2){
         String msg = "";
-        msg+=atack(character,weapon1);
+        msg+= attack(character,weapon1);
         msg+="\n";
-        msg+=atack(character,weapon2);
+        msg+= attack(character,weapon2);
         return msg;
     }
 
@@ -109,20 +109,20 @@ public class Game {
         return weapon.getEnabled();
     }
 
-    public String atack(String characterName,String weaponName){//If is in turn?
+    public String attack(String characterName, String weaponName){//If is in turn?
         Character character = playerInTurn.getCharacter(characterName);
-        String atackMsg = "";
+        String attackMsg = "";
         if(character != null){
             Weapon weapon = character.getWeapon(weaponName);
             if (weapon != null){
                 if (weapon.getEnabled()) {
-                    atackMsg += characterName + " atacked with "+weaponName+"\n";
-                    atackMsg += dealDamage(weapon);
+                    attackMsg += characterName + " atacked with "+weaponName+"\n";
+                    attackMsg += dealDamage(weapon);
                     if(winCondition)
                         endGame();
                     else
                         nextTurn();//Paso de turno al atacar
-                    return atackMsg;
+                    return attackMsg;
                 }
                 else
                     return "Weapon already used";//Error msg
@@ -167,7 +167,7 @@ public class Game {
         return  "Both players gave up";
     }
 
-    public String reloadWeapons(String characterName){
+    public void reloadWeapons(String characterName){
         Character character = playerInTurn.getCharacter(characterName);
         boolean canReload = true;
         for (Weapon weapon:character.getWeapons()){
@@ -195,8 +195,6 @@ public class Game {
         nextTurn();
         return msg;
     }
-
-
     
 }
 

@@ -11,7 +11,7 @@ import java.io.Serializable;
  *
  * @author Fernando Alvarez
  */
-public class History implements Serializable{
+public class History implements Serializable {
 
     private int values[] = new int[6];
     

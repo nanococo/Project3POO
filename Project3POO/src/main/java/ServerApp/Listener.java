@@ -25,7 +25,7 @@ public class Listener extends Thread {
         while(!killSwitch){
 
             try{
-                
+
                 IMessage message = (IMessage) new ObjectInputStream(new BufferedInputStream(client.getInputStream())).readObject();
 
                 String commandName = message.getKey();

@@ -5,8 +5,8 @@
  */
 package CientApp;
 
-import CientApp.Client;
 import GUI.MainWindow;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -23,7 +23,7 @@ public class ClientPlayer implements KeyListener {
     public ClientPlayer(String id) {
         this.playerWindow = new MainWindow(this);
         this.id = id;
-        client = new Client(playerWindow);
+        client = new Client(playerWindow, id);
         playerWindow.setVisible(true);
     }
     
