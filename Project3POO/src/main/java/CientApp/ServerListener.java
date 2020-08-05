@@ -1,26 +1,20 @@
 package CientApp;
 
 import CientApp.clientCommands.ClientCommandManager;
-import GUI.MainWindow;
+import GUIPackage.MainWindow;
 import Messaging.IMessage;
+import MessagingPackage.GenericMessage;
 import ServerApp.GamePackage.PlayerData;
-import messaging.GenericMessage;
-
-import java.io.BufferedInputStream;
-import java.io.ObjectInputStream;
-import java.net.Socket;
 
 public class ServerListener extends Thread {
 
     private final Client client;
-    private final Socket socket;
     private final MainWindow mainWindow;
     private boolean killSwitch = false;
     private final ClientCommandManager clientCommandManager = ClientCommandManager.getInstance();
 
-    public ServerListener(Socket socket, Client client, MainWindow mainWindow){
+    public ServerListener(Client client, MainWindow mainWindow){
         this.client = client;
-        this.socket = socket;
         this.mainWindow = mainWindow;
     }
 
@@ -29,7 +23,7 @@ public class ServerListener extends Thread {
     public void run() {
         while (!killSwitch){
             try{
-                IMessage message = (IMessage) new ObjectInputStream(new BufferedInputStream(socket.getInputStream())).readObject();
+                IMessage message = (IMessage) GlobalConfigurations.getObjectInputStream().readObject();
 
                 String key = message.getKey();
 
@@ -44,6 +38,7 @@ public class ServerListener extends Thread {
                 }
 
             }catch(Exception e) {
+                e.printStackTrace();
                 kill();
                 client.closeClient();
                 break;

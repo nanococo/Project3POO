@@ -1,6 +1,6 @@
 package CientApp.clientCommands;
 
-import GUI.MainWindow;
+import GUIPackage.MainWindow;
 
 @FunctionalInterface
 public interface IClientCommand {

@@ -6,6 +6,8 @@ import java.io.IOException;
 
 public class Reload implements ICommand {
 
+    public static final String NAME = "reload";
+
     @Override
     public void execute(String[] args) {
         if(args.length<=0) return;

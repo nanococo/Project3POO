@@ -5,7 +5,7 @@
  */
 package CientApp;
 
-import GUI.MainWindow;
+import GUIPackage.MainWindow;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;

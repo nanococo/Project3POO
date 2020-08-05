@@ -1,6 +1,8 @@
 package ServerApp.GamePackage;
 
-import messaging.GenericMessage;
+
+
+import MessagingPackage.GenericMessage;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;

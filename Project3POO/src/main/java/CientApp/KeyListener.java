@@ -1,12 +1,11 @@
 package CientApp;
 
-import GUI.IInput;
+import GUIPackage.IInput;
 import Messaging.IMessage;
+import MessagingPackage.GenericMessage;
 import ServerApp.CommandManager.CommandUtil;
-import messaging.GenericMessage;
 
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,11 +14,9 @@ public class KeyListener  {
 
 
     private final IInput input;//Cualquier clase que implemente Iinput
-    private final ObjectOutputStream outputStream;
 
-    public KeyListener(IInput input, ObjectOutputStream outputStream) {
+    public KeyListener(IInput input) {
         this.input = input;
-        this.outputStream = outputStream;
     }
 
     
@@ -40,7 +37,7 @@ public class KeyListener  {
         IMessage message = new GenericMessage(commandName, commandArgs);
 
         try {
-            outputStream.writeObject(message);
+            GlobalConfigurations.getObjectOutputStream().writeObject(message);
         } catch (IOException ex) {
             Logger.getLogger(KeyListener.class.getName()).log(Level.SEVERE, null, ex);
         }

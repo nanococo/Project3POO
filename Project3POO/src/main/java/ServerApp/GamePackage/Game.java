@@ -16,6 +16,7 @@ public class Game {
     public Log log;
     public PlayerLoader playerLoader;
     public Server server;
+    public long time = 0;
 
     private Player playerInTurn;
     private boolean mutualGiveUp;//2 booleanos
@@ -77,7 +78,7 @@ public class Game {
             playerInTurn = players[0];
     }
 
-    private String doubleAtack(String character1,String weapon1,String character2,String weapon2){
+    private String doubleAttack(String character1, String weapon1, String character2, String weapon2){
         String msg = "";
         msg+= attack(character1,weapon1);//Cuidado aca porque si no existe la segunda arma ya se va a haber realizado el primer ataque
         msg += "\n";
@@ -117,6 +118,8 @@ public class Game {
     public String attack(String characterName, String weaponName){//If is in turn?
         Character character = playerInTurn.getCharacter(characterName);
         String attackMsg = "";
+
+
         if(character != null){
             Weapon weapon = character.getWeapon(weaponName);
             if (weapon != null){
@@ -192,7 +195,7 @@ public class Game {
             if(args.length == 3)
                 return doubleWeapon(args[0],args[1],args[2]);
             else
-                return doubleAtack(args[0],args[1],args[2],args[3]);
+                return doubleAttack(args[0],args[1],args[2],args[3]);
     }
 
     public String selectPlayer(){//Creo que es un command propio del cliente o hay que seleccionar para atacar?

@@ -1,9 +1,8 @@
 package CientApp;
 
-import GUI.MainWindow;
+import GUIPackage.MainWindow;
 
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 public class Client {
@@ -16,18 +15,16 @@ public class Client {
         // establish a connection
         try {
 
-            ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
-
-            serverListener = new ServerListener(socket, this, input);
+            serverListener = new ServerListener(this, input);
             serverListener.start();
 
-            keyListener = new KeyListener(input, outputStream);
+            keyListener = new KeyListener(input);
 
-            GlobalConfigurations.sendMessageToServer("PlayerSetId", outputStream, id);
+            GlobalConfigurations.sendMessageToServer("PlayerSetId", GlobalConfigurations.getObjectOutputStream(), id);
 
         }
         catch(IOException u) {
-            System.out.println(u.getMessage());
+            u.printStackTrace();
         }
     }
 

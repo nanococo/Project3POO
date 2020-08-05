@@ -1,6 +1,6 @@
 package CientApp.clientCommands;
 
-import GUI.MainWindow;
+import GUIPackage.MainWindow;
 
 public class SuggestGiveUp extends BaseClientCommand {
 

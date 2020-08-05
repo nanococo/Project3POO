@@ -1,4 +1,4 @@
-package messaging;
+package MessagingPackage;
 
 import Messaging.BaseMessage;
 

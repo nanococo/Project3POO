@@ -1,13 +1,11 @@
 package ServerApp;
 
 import Messaging.IMessage;
+import MessagingPackage.GenericMessage;
 import ServerApp.CommandManager.CommandManager;
 import ServerApp.CommandManager.Commands.ICommand;
 import ServerApp.GamePackage.Player;
-import messaging.GenericMessage;
 
-import java.io.ObjectInputStream;
-import java.net.Socket;
 
 public class Listener extends Thread {
 
