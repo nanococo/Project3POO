@@ -404,6 +404,7 @@ public class MainWindow extends javax.swing.JFrame implements IInput,IOutput {
             PersonajeLabel pl = new PersonajeLabel(charac.getName(), charac.getPath());
             pl.setBounds(dimsension.width*i,0,dimsension.width,dimsension.height);
             pl.setBackground(NEGRO);
+            characterLabels[i] = pl;
             pnlCharacter.add(pl);
         }
     }
