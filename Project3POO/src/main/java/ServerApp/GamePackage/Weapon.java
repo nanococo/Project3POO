@@ -1,6 +1,4 @@
-package ServerApp.Game;
-
-import com.sun.org.apache.bcel.internal.generic.RETURN;
+package ServerApp.GamePackage;
 
 import java.io.Serializable;
 import java.util.Random;

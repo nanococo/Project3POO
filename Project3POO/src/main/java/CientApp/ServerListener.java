@@ -3,7 +3,7 @@ package CientApp;
 import CientApp.clientCommands.ClientCommandManager;
 import GUI.MainWindow;
 import Messaging.IMessage;
-import ServerApp.Game.PlayerData;
+import ServerApp.GamePackage.PlayerData;
 import messaging.GenericMessage;
 
 import java.io.BufferedInputStream;

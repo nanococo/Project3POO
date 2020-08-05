@@ -5,15 +5,12 @@
  */
 package FileManager;
 
-import ServerApp.Game.History;
-import ServerApp.Game.Player;
-import ServerApp.Game.PlayerData;
+import ServerApp.GamePackage.History;
+import ServerApp.GamePackage.PlayerData;
 import filemanager.FileManager;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  *

@@ -5,9 +5,9 @@
  */
 package CharacterManager;
 
-import ServerApp.Game.Types;
+import ServerApp.GamePackage.Types;
 import java.util.HashMap;
-import ServerApp.Game.Character;
+import ServerApp.GamePackage.Character;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

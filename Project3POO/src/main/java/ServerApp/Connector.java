@@ -1,10 +1,8 @@
 package ServerApp;
 
-import ServerApp.Game.Game;
-import ServerApp.Game.Player;
+import ServerApp.GamePackage.Player;
 
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 public class Connector extends Thread {
