@@ -1,5 +1,9 @@
 package ServerApp.CommandManager.Commands;
 
+import ServerApp.GamePackage.Game;
+
+import java.io.IOException;
+
 public class EchoCommand implements ICommand {
 
     public static final String NAME = "echo";

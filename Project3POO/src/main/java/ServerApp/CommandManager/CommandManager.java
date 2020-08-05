@@ -14,6 +14,7 @@ public class CommandManager {
         registerCommand(PlayerSetId.NAME, PlayerSetId.class);
         registerCommand(Attack.NAME, Attack.class);
         registerCommand(Chat.NAME, Chat.class);
+        registerCommand(Start.NAME, Start.class);
     }
 
     public static CommandManager getInstance(){
