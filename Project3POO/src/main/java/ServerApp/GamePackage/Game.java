@@ -2,7 +2,7 @@ package ServerApp.GamePackage;
 
 import CharacterManager.CharacterFactory;
 import FileManager.PlayerLoader;
-import ServerApp.Server;
+
 import java.io.IOException;
 import java.net.Socket;
 import java.util.Random;
@@ -15,7 +15,6 @@ public class Game {
     public Player[] players = new Player[2];
     public Log log;
     public PlayerLoader playerLoader;
-    public Server server;
     public long time = 0;
 
     private Player playerInTurn;
@@ -90,20 +89,14 @@ public class Game {
             playerInTurn = players[0];
     }
 
-    private String doubleAttack(String character1, String weapon1, String character2, String weapon2){
-        String msg = "";
-        msg+= attack(character1,weapon1);//Cuidado aca porque si no existe la segunda arma ya se va a haber realizado el primer ataque
-        msg += "\n";
-        msg+= attack(character2,weapon2);
-        return  msg;
+    private void doubleAttack(String character1, String weapon1, String character2, String weapon2){
+        attack(character1,weapon1);//Cuidado aca porque si no existe la segunda arma ya se va a haber realizado el primer ataque
+        attack(character2,weapon2);
     }
 
-    private String doubleWeapon(String character,String weapon1,String weapon2){
-        String msg = "";
-        msg+= attack(character,weapon1);
-        msg+="\n";
-        msg+= attack(character,weapon2);
-        return msg;
+    private void doubleWeapon(String character,String weapon1,String weapon2){
+        attack(character,weapon1);
+        attack(character,weapon2);
     }
 
 
@@ -127,7 +120,7 @@ public class Game {
         return weapon.getEnabled();
     }
 
-    public String attack(String characterName, String weaponName){//If is in turn?
+    public void attack(String characterName, String weaponName){//If is in turn?
         Character character = playerInTurn.getCharacter(characterName);
         String attackMsg = "";
 
@@ -142,21 +135,57 @@ public class Game {
                         endGame();
                     else
                         nextTurn();//Paso de turno al atacar
-                    return attackMsg;
+                    sendPlayerData();
+                    try{
+                        playerInTurn.sendMessageToPlayer("PrintConsole", attackMsg);
+                    }catch (IOException e){
+                        e.printStackTrace();
+                    }
+
                 }
-                else
-                    return "Weapon already used";//Error msg
+                else{
+                    sendPlayerData();
+                    try{
+                        playerInTurn.sendMessageToPlayer("PrintConsole", "Weapon already used");
+                    }catch (IOException e){
+                        e.printStackTrace();
+                    }
+                }
+
             }
             else{
-                return "Weapon does not exist";
+                sendPlayerData();
+                try{
+                    playerInTurn.sendMessageToPlayer("PrintConsole", "Weapon does not exist");
+                }catch (IOException e){
+                    e.printStackTrace();
+                }
             }
         }
-        else
-            return "Character does not exist";
+        else{
+            sendPlayerData();
+            try{
+                playerInTurn.sendMessageToPlayer("PrintConsole", "Character does not exist");
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        }
     }
 
     private void endGame() {
     }
+
+    public static void sendPlayerData(){
+        try {
+            if(Game.getInstance().players[1]!=null){
+                Game.getInstance().players[0].getObjectOutput().writeObject(Game.getInstance().players[0].getData());
+                Game.getInstance().players[1].getObjectOutput().writeObject(Game.getInstance().players[1].getData());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     private String dealDamage(Weapon weapon){
         String msg = "";
@@ -203,21 +232,25 @@ public class Game {
         }
     }
 
-    public String wildCard(String[] args){//Si se reciben dos armas o si s reciben dos character
+    public void wildCard(String[] args){//Si se reciben dos armas o si s reciben dos character
             if(args.length == 3)
-                return doubleWeapon(args[0],args[1],args[2]);
+                doubleWeapon(args[0],args[1],args[2]);
             else
-                return doubleAttack(args[0],args[1],args[2],args[3]);
+                doubleAttack(args[0],args[1],args[2],args[3]);
     }
 
     public String selectPlayer(){//Creo que es un command propio del cliente o hay que seleccionar para atacar?
         return "";
     }
 
-    public String passTurn(){
+    public void passTurn(){
         String msg = playerInTurn.getId() + " passed turn";
         nextTurn();
-        return msg;
+        try{
+            playerInTurn.sendMessageToPlayer("PrintConsole", msg);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     public String getRank() {
