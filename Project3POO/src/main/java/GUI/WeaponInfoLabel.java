@@ -15,9 +15,11 @@ import javax.swing.JLabel;
  */
 public class WeaponInfoLabel extends JLabel{
 
+    JLabel labels[] = new JLabel[11];
+    Color NEGRA = new Color(50, 50, 50);
+    
     public WeaponInfoLabel() {
-        //Crea el arreglo
-        this.setBackground(Color.red);
+        this.setBackground(NEGRA);
         this.setOpaque(true);
     }
     
@@ -28,15 +30,27 @@ public class WeaponInfoLabel extends JLabel{
         int labelWidth = (dimension.width-nameWidthDimension)/10;
         JLabel lblName = new JLabel(name);
         lblName.setBounds(0,0,nameWidthDimension,dimension.height);
+        labels[0] = lblName;
         this.add(lblName);
         for (int i = 0; i < 10; i++) {
             JLabel label = new JLabel(String.valueOf(values[i]));
+            //JLabel label = new JLabel(String.valueOf(i));
             label.setBounds((labelWidth*i)+nameWidthDimension, 0, labelWidth, dimension.height);
+            labels[i+1] = label;
             this.add(label);
         }
+        
    } 
    
-   public void paintValues(){//Pone el color original y cuando un arma esta ocupado pinta las casillas rojas
-       
+   public void usedWeapon(){//Pone el color original y cuando un arma esta ocupado pinta las casillas rojas
+       for (JLabel label : labels) {
+           label.setBackground(Color.red);
+       }
    }
+   
+    public void resetWeapon() {
+       for (JLabel label : labels) {
+           label.setBackground(NEGRA);
+       }
+    }
 }

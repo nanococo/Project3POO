@@ -332,6 +332,7 @@ public class MainWindow extends javax.swing.JFrame implements IInput,IOutput {
         //setAtack(null);
         setInfoEnemy(playerData.getHistory());
         setMyInfo(playerData.getEnemyData().getHistory());
+        setVisible(true);
     }
 
     
@@ -456,9 +457,13 @@ public class MainWindow extends javax.swing.JFrame implements IInput,IOutput {
         txtAreaEnemyInfo.setText(info);
     }
 
-    public void setUsedWeapon(){
+    public void setUsedWeapon(String characterName,String weaponName){
         //If ataque exitoso
-        //CharacterLabel[x].weaponLabel["nombre"].setBckrnd(red);
+        for (PersonajeLabel characterLabel : characterLabels) {
+            if (characterLabel.name.getText() == characterName) {
+                characterLabel.weaponsInfoLabel.setUsed(weaponName);
+            }
+        }
     }
 
     @Override
@@ -473,5 +478,22 @@ public class MainWindow extends javax.swing.JFrame implements IInput,IOutput {
     @Override
     public void write(String string) {
         printConsoleMessage(string, true);
+    }
+
+    private void updateWeaponInfo(PersonajeLabel label){
+        pnlWeapn.removeAll();
+        pnlWeapn.add(label.weaponsInfoLabel);
+        pnlWeapn.validate();
+        pnlWeapn.repaint();
+    }
+    
+    public void selectCharacter(String charName){
+        for (PersonajeLabel characterLabel : characterLabels) {
+            if(characterLabel.name.getText() == charName){
+                updateWeaponInfo(characterLabel);
+                return;
+            }
+        }
+        println("Personaje no existe", false);
     }
 }

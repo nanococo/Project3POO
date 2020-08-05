@@ -107,7 +107,7 @@
       <recent name="C:\GitHub_Projects\Project3POO\Project3POO\src\main\java\lib" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ClientStart (1)">
+  <component name="RunManager" selected="Application.GUITest">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -132,25 +132,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClientStart" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="CientApp.ClientStart" />
+    <configuration name="GUITest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUI.GUITest" />
       <module name="Project3POO" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="CientApp.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RandomGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ServerApp.CommandManager.Commands.RandomGenerator" />
-      <module name="Project3POO" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ServerApp.CommandManager.Commands.*" />
+          <option name="PATTERN" value="GUI.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -191,20 +178,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUI.Test" />
+      <module name="Project3POO" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="GUI.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="Application.ClientStart" />
-      <item itemvalue="Application.RandomGenerator" />
       <item itemvalue="Application.ClientStart (1)" />
       <item itemvalue="Application.ServerStart" />
       <item itemvalue="Application.SaveChar" />
+      <item itemvalue="Application.Test" />
+      <item itemvalue="Application.GUITest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ClientStart (1)" />
-        <item itemvalue="Application.ServerStart" />
+        <item itemvalue="Application.GUITest" />
         <item itemvalue="Application.SaveChar" />
-        <item itemvalue="Application.RandomGenerator" />
-        <item itemvalue="Application.ClientStart" />
+        <item itemvalue="Application.ClientStart (1)" />
+        <item itemvalue="Application.Test" />
+        <item itemvalue="Application.ServerStart" />
       </list>
     </recent_temporary>
   </component>
@@ -287,22 +287,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1595999009240" />
-    <state width="1493" height="207" key="GridCell.Tab.0.bottom" timestamp="1596648810651">
+    <state width="1493" height="207" key="GridCell.Tab.0.bottom" timestamp="1596651144464">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="207" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1596648810651" />
-    <state width="1493" height="207" key="GridCell.Tab.0.center" timestamp="1596648810651">
+    <state width="1493" height="207" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1596651144464" />
+    <state width="1493" height="207" key="GridCell.Tab.0.center" timestamp="1596651144463">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="207" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1596648810651" />
-    <state width="1493" height="207" key="GridCell.Tab.0.left" timestamp="1596648810651">
+    <state width="1493" height="207" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1596651144463" />
+    <state width="1493" height="207" key="GridCell.Tab.0.left" timestamp="1596651144463">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="207" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1596648810651" />
-    <state width="1493" height="207" key="GridCell.Tab.0.right" timestamp="1596648810651">
+    <state width="1493" height="207" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1596651144463" />
+    <state width="1493" height="207" key="GridCell.Tab.0.right" timestamp="1596651144463">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="207" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1596648810651" />
+    <state width="1493" height="207" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1596651144463" />
     <state width="1493" height="207" key="GridCell.Tab.1.bottom" timestamp="1596648796785">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
