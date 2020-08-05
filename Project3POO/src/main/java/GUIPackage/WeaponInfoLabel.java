@@ -33,6 +33,7 @@ public class WeaponInfoLabel extends JLabel{
         labels[0] = lblName;
         this.add(lblName);
         for (int i = 0; i < 10; i++) {
+            System.out.println(values[i]);
             JLabel label = new JLabel(String.valueOf(values[i]));
             //JLabel label = new JLabel(String.valueOf(i));
             label.setBounds((labelWidth*i)+nameWidthDimension, 0, labelWidth, dimension.height);

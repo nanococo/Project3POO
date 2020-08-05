@@ -21,8 +21,11 @@ public class Weapon implements Serializable {
     }
 
     private void generateDamages() {
-        for (int damage :damages)
-            damage = new Random().nextInt(80)+21;
+        for (int i = 0;i<10;i++) {
+            damages[i] = new Random().nextInt(80) + 21;
+            System.out.println("Danos"+damages[i]);
+        }
+        System.out.println(damages);
     }
     
     public void setEnabled(boolean value){
