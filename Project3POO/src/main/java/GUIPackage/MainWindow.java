@@ -484,6 +484,9 @@ public class MainWindow extends javax.swing.JFrame implements IInput,IOutput {
 
     @Override
     public void write(String string) {
+        if(string.equals("The game has ended")) {
+            this.txtInput.setEnabled(false);
+        }
         printConsoleMessage(string, false);
     }
 

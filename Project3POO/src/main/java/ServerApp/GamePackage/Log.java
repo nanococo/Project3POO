@@ -24,5 +24,8 @@ public class Log {
         
     }
 
+    public void saveLog(){
+
+    }
 
 }

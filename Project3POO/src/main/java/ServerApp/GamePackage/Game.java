@@ -137,6 +137,7 @@ public class Game {
                 if (weapon.getEnabled()) {
                     attackMsg += characterName + " atacked with "+weaponName+"\n";
                     attackMsg += dealDamage(weapon);
+                    enemyStatus();
                     if(winCondition)
                         endGame();
                     else
@@ -179,6 +180,14 @@ public class Game {
     }
 
     private void endGame() {
+        for(Player player:players) {
+            try {
+                player.sendMessageToPlayer("PrintConsole", "The game has ended");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        log.saveLog();
     }
 
     public static void sendPlayerData(){
@@ -200,25 +209,34 @@ public class Game {
         for (Character character:enemy.getCharacters()){//El dano hace return del estado del personaje
             int damage = damages[character.getType().ordinal()];
             boolean alive = character.recieveDamage(damage);
-            msg += character.getName()+" recieved " +damage+"% damage";
-            if(!alive)
+            msg += character.getName()+" received " +damage+"% damage";
+            if(!alive){
+                playerInTurn.getData().incrementValue(History.enumValues.ataquesExitosos);
                 msg+=" and died";
+            }
+            else {
+                playerInTurn.getData().incrementValue(History.enumValues.ataquesFallidos);
+                playerInTurn.getData().incrementValue(History.enumValues.asesinatos);
+            }
             msg+= "\n";
         }
         return msg;
     }
 
     public String surrender(){
-        winCondition = true;
         playerInTurn.giveUp();
         endGame();
+        playerInTurn.getData().incrementValue(History.enumValues.rendiciones);
+        enemyPlayer().getData().incrementValue(History.enumValues.ganes);
         return playerInTurn.getId()+" gave up";
     }
 
     public String mutualGiveUp(){//Tienen que estar los dos de acuerdo
-        winCondition = true;
         playerInTurn.giveUp();
         enemyPlayer().giveUp();
+        playerInTurn.getData().incrementValue(History.enumValues.rendiciones);
+        enemyPlayer().getData().incrementValue(History.enumValues.rendiciones);
+        endGame();
         return  "Both players gave up";
     }
 
@@ -263,6 +281,15 @@ public class Game {
         return this.playerLoader.getRank();
     }
 
+    public void enemyStatus(){
+        for(Character character:enemyPlayer().getCharacters()){
+            if(character.alive)
+                return;
+        }
+        playerInTurn.getData().incrementValue(History.enumValues.ganes);
+        enemyPlayer().getData().incrementValue(History.enumValues.perdidas);
+        winCondition = true;
+    }
 
 }
 
