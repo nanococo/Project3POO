@@ -403,7 +403,7 @@ public class MainWindow extends javax.swing.JFrame implements IInput,IOutput {
         Dimension dimsension = new Dimension(this.pnlCharacter.getSize().width/5, this.pnlCharacter.getSize().height);
         for (int i = 0; i < 5; i++) {
             Character charac = characters[i];
-            PersonajeLabel pl = new PersonajeLabel(charac.getName(), charac.getPath());
+            PersonajeLabel pl = new PersonajeLabel(charac.getName(), charac.getPath(),charac.getType().name());
             pl.setBounds(dimsension.width*i,0,dimsension.width,dimsension.height);
             pl.setBackground(NEGRO);
             characterLabels[i] = pl;
@@ -500,7 +500,8 @@ public class MainWindow extends javax.swing.JFrame implements IInput,IOutput {
     
     public void selectCharacter(String charName){
         for (PersonajeLabel characterLabel : characterLabels) {
-            if(characterLabel.name.getText() == charName){
+            System.out.println(characterLabel.namePichudo+charName);
+            if(characterLabel.namePichudo.equals(charName)){
                 updateWeaponInfo(characterLabel);
                 return;
             }
