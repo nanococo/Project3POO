@@ -147,15 +147,15 @@
     <property name="settings.editor.selected.configurable" value="copyright" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\GitHub_Projects\Project3POO\Project3POO\src\lib" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\GitHub_Projects\Project3POO\Project3POO\src\lib" />
       <recent name="C:\GitHub_Projects\Project3POO\Project3POO\src\main\java\lib" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\GitHub_Projects\Project3POO\Project3POO\src\lib" />
     </key>
   </component>
   <component name="RunManager" selected="Application.ClientStart (1)">
@@ -186,19 +186,6 @@
       </method>
     </configuration>
     <configuration name="ClientStart" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="CientApp.ClientStart" />
-      <module name="Project3POO" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="CientApp.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ClientStart" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GUIPackage.ClientStart" />
       <module name="Project3POO" />
       <extension name="coverage">
@@ -211,12 +198,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RandomGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ServerApp.CommandManager.Commands.RandomGenerator" />
+    <configuration name="CommandTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ServerApp.CommandManager.CommandTest" />
       <module name="Project3POO" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ServerApp.CommandManager.Commands.*" />
+          <option name="PATTERN" value="ServerApp.CommandManager.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GUITest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUIPackage.GUITest" />
+      <module name="Project3POO" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="GUIPackage.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -258,19 +258,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.ClientStart" />
-      <item itemvalue="Application.RandomGenerator" />
       <item itemvalue="Application.ServerStart" />
       <item itemvalue="Application.ClientStart (1)" />
       <item itemvalue="Application.SaveChar" />
+      <item itemvalue="Application.GUITest" />
+      <item itemvalue="Application.CommandTest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.ClientStart (1)" />
         <item itemvalue="Application.ServerStart" />
+        <item itemvalue="Application.CommandTest" />
         <item itemvalue="Application.SaveChar" />
-        <item itemvalue="Application.RandomGenerator" />
-        <item itemvalue="Application.ClientStart" />
+        <item itemvalue="Application.GUITest" />
       </list>
     </recent_temporary>
   </component>
@@ -336,10 +336,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="498" y="214" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1596608849294" />
-    <state x="551" y="281" width="433" height="267" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1596608871687">
+    <state x="551" y="281" width="433" height="267" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1596669044338">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="551" y="281" width="433" height="267" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1596608871687" />
+    <state x="551" y="281" width="433" height="267" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1596669044338" />
     <state x="434" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1596425210299">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -352,38 +352,38 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1595999009240" />
-    <state width="1493" height="206" key="GridCell.Tab.0.bottom" timestamp="1596666082202">
+    <state width="1493" height="207" key="GridCell.Tab.0.bottom" timestamp="1596675806541">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="206" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1596666082202" />
-    <state width="1493" height="206" key="GridCell.Tab.0.center" timestamp="1596666082202">
+    <state width="1493" height="207" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1596675806541" />
+    <state width="1493" height="207" key="GridCell.Tab.0.center" timestamp="1596675806541">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="206" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1596666082202" />
-    <state width="1493" height="206" key="GridCell.Tab.0.left" timestamp="1596666082202">
+    <state width="1493" height="207" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1596675806541" />
+    <state width="1493" height="207" key="GridCell.Tab.0.left" timestamp="1596675806541">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="206" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1596666082202" />
-    <state width="1493" height="206" key="GridCell.Tab.0.right" timestamp="1596666082202">
+    <state width="1493" height="207" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1596675806541" />
+    <state width="1493" height="207" key="GridCell.Tab.0.right" timestamp="1596675806541">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="206" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1596666082202" />
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1596646788893">
+    <state width="1493" height="207" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1596675806541" />
+    <state width="1493" height="207" key="GridCell.Tab.1.bottom" timestamp="1596675746023">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1596646788893" />
-    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1596646788892">
+    <state width="1493" height="207" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1596675746023" />
+    <state width="1493" height="207" key="GridCell.Tab.1.center" timestamp="1596675746022">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1596646788892" />
-    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1596646788892">
+    <state width="1493" height="207" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1596675746022" />
+    <state width="1493" height="207" key="GridCell.Tab.1.left" timestamp="1596675746022">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1596646788892" />
-    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1596646788892">
+    <state width="1493" height="207" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1596675746022" />
+    <state width="1493" height="207" key="GridCell.Tab.1.right" timestamp="1596675746023">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1596646788892" />
+    <state width="1493" height="207" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1596675746023" />
     <state x="277" y="57" key="SettingsEditor" timestamp="1596423847029">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -408,10 +408,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="469" y="170" key="refactoring.ChangeSignatureDialog/0.0.1536.824@0.0.1536.824" timestamp="1596641576117" />
-    <state x="425" y="187" key="run.anything.popup" timestamp="1596644013010">
+    <state x="425" y="187" key="run.anything.popup" timestamp="1596674244129">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1596644013010" />
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1596674244129" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1596562343786">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

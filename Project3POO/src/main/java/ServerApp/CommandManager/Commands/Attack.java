@@ -10,6 +10,6 @@ public class Attack implements ICommand {
     public void execute(String[] args) {
         if(args.length<=0) return;
 
-        Game.getInstance().attack(args[1], args[2]);
+        Game.getInstance().attack(args[0], args[1]);
     }
 }

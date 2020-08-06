@@ -40,7 +40,7 @@ public class CharacterFactory {
     }
     
     public void saveCharacter(String nombre,String path, Types type){
-        Character newChar = new Character(type, path, path);
+        Character newChar = new Character(type, nombre, path);
         saveCharacter(newChar);
     }
     

@@ -330,8 +330,9 @@ public class MainWindow extends javax.swing.JFrame implements IInput,IOutput {
         setWeapons(playerData.getCharacter());
         //setAtacked(null);
         //setAtack(null);
-        setInfoEnemy(playerData.getHistory(),playerData.getId());
-        setMyInfo(playerData.getEnemyData().getHistory(),playerData.getId());
+        setInfoEnemy(playerData.getEnemyData().getHistory(),playerData.getEnemyData().getId());
+        setMyInfo(playerData.getHistory(),playerData.getId());
+        System.out.println(playerData.getCharacter()[0].getWeapon(playerData.getCharacter()[0].getWeapons()[0].getName()).getDamages());
         validate();
         repaint();
     }
@@ -402,7 +403,7 @@ public class MainWindow extends javax.swing.JFrame implements IInput,IOutput {
         Dimension dimsension = new Dimension(this.pnlCharacter.getSize().width/5, this.pnlCharacter.getSize().height);
         for (int i = 0; i < 5; i++) {
             Character charac = characters[i];
-            PersonajeLabel pl = new PersonajeLabel(charac.getName(), charac.getPath());
+            PersonajeLabel pl = new PersonajeLabel(charac.getName(), charac.getPath(),charac.getType().name());
             pl.setBounds(dimsension.width*i,0,dimsension.width,dimsension.height);
             pl.setBackground(NEGRO);
             characterLabels[i] = pl;
@@ -419,6 +420,7 @@ public class MainWindow extends javax.swing.JFrame implements IInput,IOutput {
         int labelHeigth = dimension.height/5;
         for(int j = 0;j<5;j++) {
             WeaponLabel weaponLabel = new WeaponLabel();
+            characterLabels[j].weaponsInfoLabel = weaponLabel;
             weaponLabel.setLocation(0,0);
             weaponLabel.setSize(pnlWeapn.getSize());
             Character currentChar = characters[j];
@@ -428,9 +430,12 @@ public class MainWindow extends javax.swing.JFrame implements IInput,IOutput {
                 wil.createLabels(currentChar.getWeapons()[i].getName(), currentChar.getWeapons()[i].getDamages());
                 weaponLabel.labels[i] = wil;
             }
-            characterLabels[j].weaponsInfoLabel = weaponLabel;
+            weaponLabel.addToLabel();
         }
-        pnlWeapn.add(characterLabels[0]);
+        characterLabels[0].weaponsInfoLabel.setBackground(Color.RED);
+        pnlWeapn.add(characterLabels[0].weaponsInfoLabel);
+        pnlWeapn.validate();
+        pnlWeapn.repaint();
     }
 
     //Nombre,Dano recibido
@@ -479,7 +484,10 @@ public class MainWindow extends javax.swing.JFrame implements IInput,IOutput {
 
     @Override
     public void write(String string) {
-        printConsoleMessage(string, true);
+        if(string.equals("The game has ended")) {
+            this.txtInput.setEnabled(false);
+        }
+        printConsoleMessage(string, false);
     }
 
     private void updateWeaponInfo(PersonajeLabel label){
@@ -492,7 +500,8 @@ public class MainWindow extends javax.swing.JFrame implements IInput,IOutput {
     
     public void selectCharacter(String charName){
         for (PersonajeLabel characterLabel : characterLabels) {
-            if(characterLabel.name.getText() == charName){
+            System.out.println(characterLabel.namePichudo+charName);
+            if(characterLabel.namePichudo.equals(charName)){
                 updateWeaponInfo(characterLabel);
                 return;
             }

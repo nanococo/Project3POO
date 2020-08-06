@@ -16,6 +16,7 @@ public class WeaponLabel extends JLabel {
         for (WeaponInfoLabel label:labels){
             this.add(label);
         }
+        repaint();
     }
     
     public void setUsed(String weaponName){
@@ -24,6 +25,7 @@ public class WeaponLabel extends JLabel {
                 label.usedWeapon();
             }
         }
+        repaint();
     }
     
     public void resetWeapons(){

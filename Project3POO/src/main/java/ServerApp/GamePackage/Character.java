@@ -8,9 +8,9 @@ public class Character implements Serializable,Cloneable{
     String name;
     String path;
     int health;
-    private Weapon weapons[];//Seguramente dara problemas al serializar
+    private Weapon weapons[];
     boolean alive;
-    //Creo que voy a necesitar usar un character data
+
  
     public Character(Types type, String name, String path) {
         this.type = type;
@@ -46,7 +46,7 @@ public class Character implements Serializable,Cloneable{
 
     public Weapon getWeapon(String weaponName){
         for (Weapon weapon:weapons){
-            if(weapon.getName() == weaponName)
+            if(weapon.getName().equals(weaponName))
                 return  weapon;
         }
         return  null;

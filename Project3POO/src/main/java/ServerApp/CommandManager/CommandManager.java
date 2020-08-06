@@ -1,7 +1,9 @@
 package ServerApp.CommandManager;
 
 import ServerApp.CommandManager.Commands.*;
+import ServerApp.GamePackage.Game;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 public class CommandManager {
@@ -34,11 +36,24 @@ public class CommandManager {
                 return commands.get(commandName.toUpperCase()).newInstance();
             } catch (Exception e) {
                 e.printStackTrace();
-                return (param -> System.out.println("Error command not found"));
+
+                return (param -> {
+                    try {
+                        Game.getInstance().getPlayerInTurn().sendMessageToPlayer("PrintConsole", "Error command not found");
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
+                });
             }
         }
         else {
-            return (param -> System.out.println("Error command not found"));
+            return (param -> {
+                try {
+                    Game.getInstance().getPlayerInTurn().sendMessageToPlayer("PrintConsole", "Error command not found");
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+            });
         }
     }
 

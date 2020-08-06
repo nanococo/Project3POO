@@ -22,8 +22,10 @@ public class PersonajeLabel extends JLabel{
     JLabel hp;
     WeaponLabel weaponsInfoLabel;
     String path = System.getProperty("user.dir")+"/src/main/resources/";
+    String namePichudo;
 
-    public PersonajeLabel(String name,String fileName) {
+    public PersonajeLabel(String name,String fileName,String type) {
+        this.namePichudo = name;
         path = path+fileName;
         System.out.println(path);
         this.setOpaque(true);
@@ -31,12 +33,12 @@ public class PersonajeLabel extends JLabel{
         this.hp = new JLabel();
         this.name.setOpaque(true);
         this.hp.setOpaque(true);
-        this.name.setText(name);
+        this.name.setText(name+":"+type);
         this.hp.setText("%100");
         this.hp.setBackground(Color.red);
         this.name.setBackground(Color.red);
-        this.name.setBounds(0,0,50,20);
-        this.hp.setBounds(0,50,30,20);
+        this.name.setBounds(0,0,80,20);
+        this.hp.setBounds(0,50,50,20);
         this.add(this.name);
         this.add(this.hp);
         this.setBorder(BorderFactory.createLineBorder(Color.black));

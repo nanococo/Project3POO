@@ -1,6 +1,8 @@
 package CientApp;
 
+import CientApp.clientCommands.ClientCommandManager;
 import GUIPackage.IInput;
+import GUIPackage.MainWindow;
 import Messaging.IMessage;
 import MessagingPackage.GenericMessage;
 import ServerApp.CommandManager.CommandUtil;
@@ -13,9 +15,9 @@ import java.util.logging.Logger;
 public class KeyListener  {
 
 
-    private final IInput input;//Cualquier clase que implemente Iinput
+    private final MainWindow input;//Cualquier clase que implemente Iinput
 
-    public KeyListener(IInput input) {
+    public KeyListener(MainWindow  input ) {
         this.input = input;
     }
 
@@ -37,7 +39,10 @@ public class KeyListener  {
         IMessage message = new GenericMessage(commandName, commandArgs);
 
         try {
-            GlobalConfigurations.getObjectOutputStream().writeObject(message);
+            if(!commandName.equals("selectplayer"))
+                GlobalConfigurations.getObjectOutputStream().writeObject(message);
+            else
+                ClientCommandManager.getInstance().executeOperation(commandArgs, input, ClientCommandManager.getInstance().getCommand(message.getKey()));
         } catch (IOException ex) {
             Logger.getLogger(KeyListener.class.getName()).log(Level.SEVERE, null, ex);
         }

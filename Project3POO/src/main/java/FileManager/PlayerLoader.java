@@ -64,7 +64,7 @@ public class PlayerLoader {
         int index = 0;
         Arrays.sort(players);
         for (int i = 0;i<10;i++){
-            rank += i+".";
+            rank += (i+1)+".";
             if(index< players.length) {
                 rank += players[index].getId() + "[" + players[index].getValue(History.enumValues.ganes) + "/" + players[index].getValue(History.enumValues.perdidas) + "]";
                 index++;
